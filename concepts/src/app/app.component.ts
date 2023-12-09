@@ -7,6 +7,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { TemplateBindingComponent } from './components/template/template-binding/template-binding.component';
 import { PropertyBindingComponent } from './components/template/property-binding/property-binding.component';
 import { StyleBindingComponent } from './components/template/style-binding/style-binding.component';
+import { EventBindingComponent } from './components/template/event-binding/event-binding.component';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,8 @@ import { StyleBindingComponent } from './components/template/style-binding/style
     HeaderComponent, 
     TemplateBindingComponent, 
     PropertyBindingComponent, 
-    StyleBindingComponent
+    StyleBindingComponent,
+    EventBindingComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
