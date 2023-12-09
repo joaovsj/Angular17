@@ -8,6 +8,7 @@ import { TemplateBindingComponent } from './components/template/template-binding
 import { PropertyBindingComponent } from './components/template/property-binding/property-binding.component';
 import { StyleBindingComponent } from './components/template/style-binding/style-binding.component';
 import { EventBindingComponent } from './components/template/event-binding/event-binding.component';
+import { ReferenceVariablesComponent } from './components/template/reference-variables/reference-variables.component';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +20,8 @@ import { EventBindingComponent } from './components/template/event-binding/event
     TemplateBindingComponent, 
     PropertyBindingComponent, 
     StyleBindingComponent,
-    EventBindingComponent
+    EventBindingComponent,
+    ReferenceVariablesComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'

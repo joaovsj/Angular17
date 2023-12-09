@@ -12,9 +12,6 @@ export class EventBindingComponent {
 
   public clientTop = 100
   public clientLeft = 100
-
-
-
   showValues(event: MouseEvent){
 
     this.clientTop = event.clientY;
