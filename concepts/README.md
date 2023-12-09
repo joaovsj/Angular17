@@ -1,27 +1,48 @@
-# Concepts
+# Conceitos Fundamentais
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.5.
+Caminho para os conteitos abaixo: 
+> app/components/template
 
-## Development server
+* Text Interpolation
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+```HTML
+<p> {{ nome }} </p> 
+```
 
-## Code scaffolding
+<br>
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+* Property Binding / Attribute Binding
 
-## Build
+```HTML
+<button [disabled]="isDisabled">Click me</button> 
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+<br>
 
-## Running unit tests
+* Class and Style Binding
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```HTML   
+<button 
+    [class.success]="condition"
+    [class.danger]="!condition"
+>Button of example</button> 
+```
+<br>
 
-## Running end-to-end tests
+* Event Binding
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```HTML 
+<div class="box" (mousemove)="showValues($event)"></div>
+```
+<br>
 
-## Further help
+* Template Variables
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```HTML 
+<h3 #title>Template Reference Variables</h3>
+```
+```javascript
+@ViewChild('title') public titlePage!: ElementRef
+```
+
+
