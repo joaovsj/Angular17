@@ -1,0 +1,73 @@
+form{
+    width: min-content;
+    padding: 20px;
+    display: flex;
+    gap: 4px;    
+
+    input{
+        outline: none;
+        padding: 9px;   
+    }
+    
+    button{
+        cursor: pointer;
+        border: none;
+
+    }
+}
+
+
+// seleciona apenas os elementos do componente 
+:host{
+    p{
+        background-color: red;
+    }
+}
+
+// aplicando CSS baseado no componente PAI
+:host-context(.theme-purple){
+    form{
+        background-color: rgba(77, 0, 128, 0.67);
+    }
+
+    input{
+        border: 2px solid #FFF;
+        background-color: transparent;
+        color: #FFF;
+    }
+
+    button{
+        background-color: #FFF;
+        color: black;
+        
+        // seleciona o elemento pai dentro desse "contexto", no caso o BUTTON
+        &:hover{
+            background-color: #dbd9d9;
+        }
+    }
+}
+
+// aplicando CSS baseado no componente PAI
+:host-context(.theme-light){
+    input{
+        border: 2px solid rgba(77, 0, 128, 0.67);
+    }
+    
+    button{
+        background-color: rgba(77, 0, 128, 0.67);
+        color: #FFF;
+    }
+}
+
+
+// forca o acesso ao elemento 
+::ng-deep{
+    h2{
+        color: red;
+    }
+}
+
+
+
+
+
