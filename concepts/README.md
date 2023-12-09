@@ -42,7 +42,7 @@ Caminho para os conteitos abaixo:
 <h3 #title>Template Reference Variables</h3>
 ```
 ```javascript
- @ViewChild('name') public nameInput!: ElementRef 
+@ViewChild('title') public titlePage!: ElementRef
 ```
 
 
