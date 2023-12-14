@@ -1,8 +1,20 @@
 <h2>Control Flow</h2>
 
 
+
+
+<!-- Forma Nova  -->
+
 @if(isTrue) {
     <p> É verdadeiro! </p>
 } @else {
     <p> É falso! </p>
 }
+
+
+<ng-container *ngIf="isTrue; else elseBlock">
+    <p>É verdadeiro!</p>
+</ng-container>
+<ng-template #elseBlock>
+    <p> É falso!</p>
+</ng-template>

@@ -1,0 +1,6 @@
+{
+    "vscode-angular-html.colorCustomizations": true,
+    "vscode-angular-html.ariaAttributePrefix": "",
+    "vscode-angular-html.controlFlowKeyword": "#8C031C ",
+    "vscode-angular-html.controlFlowPrefix": "#8C031C "
+}

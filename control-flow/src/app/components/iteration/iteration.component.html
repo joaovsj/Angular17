@@ -1,0 +1,23 @@
+
+
+<h3>Listagem dos Itens</h3>
+<ul>
+
+
+    <!-- PIPE ASYNC - fala pra o Angular que isso é uma Promise e retorna apenas o resultado, voce pode atribuir um apelido também a esse item. -->
+
+    <ul>
+        @if(loadingData$ | async; as items) {
+            @for(item of items; track item){
+                <li> {{ item }}  </li>
+            }
+        }@else {
+            <li>Carregando...</li>
+        }
+    </ul>
+
+
+    <button (click)="addItem()">Add Item</button>
+</ul>
+
+
