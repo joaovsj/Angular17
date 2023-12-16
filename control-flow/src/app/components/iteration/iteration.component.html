@@ -16,6 +16,8 @@
         }
     </ul>
 
+
+    <!-- Parameters of For -->
     @for(item of items; track item;
         let i = $index;  
         let c = $count;
@@ -24,7 +26,6 @@
         let e = $even; 
         let o = $odd;
     ){
-
         <p>índice: {{ i }} - {{ item.name }} </p>
         <p>Total de itens: {{ c }}</p>
         <p>É o primeiro: {{ f }}</p>
@@ -32,13 +33,19 @@
         <p>É par: {{ e }}</p>
         <p>É ímpar: {{ o }}</p> 
         <hr>
-
-        <!-- <p>{{ item.name }}</p> -->
-
     }
 
-    
+    <h3>Usando EMPTY</h3>
+    <!-- Empty  -->
+    @for(car of cars; track car){
+        
+        <li>{{ car }}</li>
 
+    } @empty {
+        <li> Não há itens na lista. </li>
+    }   
+    
+    <br><br>
 </ul>
 
 

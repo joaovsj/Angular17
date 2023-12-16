@@ -26,12 +26,21 @@ export class IterationComponent {
     'Nathália'
   ]).pipe(delay(3000))
 
-
+  // Parameters of For
   public items = [
     { name: "Rebeca"},
     { name: "Thalita" },
     { name: "Ana"}
   ];
+
+  // Empty
+  public  cars = [
+    "Toro",
+    "Kwid",
+    "Gol"
+  ];
+
+
   
 
 
