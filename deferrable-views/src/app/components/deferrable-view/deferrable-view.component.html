@@ -25,6 +25,15 @@
  -->
 
 <button #show>Exibir</button>
+<button (click)="changeState()">Change State </button>
+
+<!-- 
+ 
+
+
+@defer(
+    when state; => vai ser executado quando state for TRUE
+){ -->
 
 @defer(
     on timer(4s);
@@ -35,13 +44,17 @@
 
     <app-new-component />
 
-} @placeholder {
+} @placeholder() {   
+    <!-- 
+        placeholder(minimum 1s) 
+        valores que podem ser passados dentro do PLACEHOLDER 
+    -->
+
 
     <!-- Nesse momento nenhum download está sendo feito! -->
     <p>Conteúdo que aparecesse antes de carregar. </p> 
 
 } @loading {
-
     <!-- Esse bloco é exibido durante o download dos Chunks  -->
     <p>Carregando o component...</p>
 

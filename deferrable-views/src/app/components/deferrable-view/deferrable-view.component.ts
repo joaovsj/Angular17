@@ -11,4 +11,10 @@ import { NewComponentComponent } from '../new-component/new-component.component'
 })
 export class DeferrableViewComponent {
 
+  public state: boolean = false;
+
+  public changeState(){
+    this.state = true;
+  }
+
 }
