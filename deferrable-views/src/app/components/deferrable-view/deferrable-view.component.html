@@ -1,0 +1,51 @@
+<h3>Deferrable View</h3>
+
+
+<!-- 
+    +======================
+    |  DEFERRABLE VIEW 
+    +======================
+
+    É uma forma de criarmos um "micro" lazy loading que faz com que o carregamento dos nossos 
+    components sejam feitos sobre demanda, primeiro ele carrega todo conteúdo para o usuário 
+    e depois ele pode ir fazendo o carregamento de outros components 
+
+
+    ON - especifica uma condição de acionador para que o defer seja executado!
+    (idle, timer, viewport, interaction, hover, immediate, prefetch)
+
+    idle = padrão, executa quando o Browser estiver inativo
+    timer = permite especificar tempo
+    viewport = executa quando sedá um Scroll no mouse e chega a visualização do component
+    interaction = permite definir interações
+    hover = executa quando existir um hover 
+    immediate = executa direto
+    prefetch = carrega, mas não renderiza na tela o resultado sem outras ações
+
+ -->
+
+<button #show>Exibir</button>
+
+@defer(
+    on timer(4s);
+    on interaction(show);
+    on hover;
+    on viewport;
+){
+
+    <app-new-component />
+
+} @placeholder {
+
+    <!-- Nesse momento nenhum download está sendo feito! -->
+    <p>Conteúdo que aparecesse antes de carregar. </p> 
+
+} @loading {
+
+    <!-- Esse bloco é exibido durante o download dos Chunks  -->
+    <p>Carregando o component...</p>
+
+} @error {
+    <p>Falha ao carregar o component!</p>
+}
+
