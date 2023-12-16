@@ -2,12 +2,12 @@
 
 <h3>Listagem dos Itens</h3>
 <ul>
-
-
     <!-- PIPE ASYNC - fala pra o Angular que isso é uma Promise e retorna apenas o resultado, voce pode atribuir um apelido também a esse item. -->
-
     <ul>
         @if(loadingData$ | async; as items) {
+            <!-- 
+                TRACK - faz o rastreio de cada item, impedindo que toda lista seja recarregada, caso haja alhuma alteração.
+             -->
             @for(item of items; track item){
                 <li> {{ item }}  </li>
             }
@@ -16,8 +16,29 @@
         }
     </ul>
 
+    @for(item of items; track item;
+        let i = $index;  
+        let c = $count;
+        let f = $first;
+        let l = $last;
+        let e = $even; 
+        let o = $odd;
+    ){
 
-    <button (click)="addItem()">Add Item</button>
+        <p>índice: {{ i }} - {{ item.name }} </p>
+        <p>Total de itens: {{ c }}</p>
+        <p>É o primeiro: {{ f }}</p>
+        <p>É o último: {{ l }}</p>
+        <p>É par: {{ e }}</p>
+        <p>É ímpar: {{ o }}</p> 
+        <hr>
+
+        <!-- <p>{{ item.name }}</p> -->
+
+    }
+
+    
+
 </ul>
 
 

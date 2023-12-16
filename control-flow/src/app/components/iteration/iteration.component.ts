@@ -18,19 +18,22 @@ import { Observable, delay, of } from 'rxjs';
 })
 export class IterationComponent {
 
-  names = [
+  // OF = converte os argumentos para um observable sequencial
+  public loadingData$: Observable<string[]> = of([
     'João',
     'Pedro',
     'Carlos',
     'Nathália'
+  ]).pipe(delay(3000))
+
+
+  public items = [
+    { name: "Rebeca"},
+    { name: "Thalita" },
+    { name: "Ana"}
   ];
-
-  // OF = converte os argumentos para um observable sequencial
-  public loadingData$: Observable<string[]> = of(this.names).pipe(delay(3000))
+  
 
 
-  public addItem(){
-    this.names.push('Teste')
-  }
 
 }
