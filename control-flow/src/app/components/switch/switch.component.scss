@@ -1,0 +1,20 @@
+
+main{
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.progress{
+    display: flex;
+    height: 5px;
+    width: 100%;
+    background-color: #cfcfcf;
+    
+    span{
+        height: 5px;
+        background-color: blue;
+        transition: .4s;
+    }
+}

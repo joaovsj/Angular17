@@ -1,0 +1,59 @@
+
+
+
+<h2>Cadastro</h2>
+
+<main>
+
+    @switch (state) {
+        @case(1){
+            <div>
+                <p>Qual o seu CPF?</p>
+                <input type="text" #cpf> 
+                <button (click)="receiveCpf(cpf.value)">Prosseguir</button>
+            </div>
+        }
+        @case(2){
+            <div>
+                <p>Nos informe qual o seu nome: </p>
+                <input type="text" #name> 
+                <button (click)="receiveName(name.value)">Prosseguir</button>
+            </div>
+        }
+        @case(3){
+            <div>
+                <p>Quantos anos você tem? </p>
+                <input type="text" #age> 
+                <button (click)="receiveAge(age.value)">Finalizar</button>
+            </div>
+        }
+        @case(4){
+            <div>
+                <p>Cadastro realizado com sucesso!</p>
+            </div>
+        }
+        @default {
+            <p>Preencha todos os campos para prosseguir...</p>
+        }
+    }   
+    <div class="progress">
+        <span
+            [style.width]="stage+'%'"
+        ></span>
+    </div>
+   
+</main>
+<!-- @switch(letter){
+
+    @case("A"){
+        <p>Nos informe seu nome?</p>
+        <input type="text">
+    }
+    @case ("B") {
+        <p>A letra é B</p>
+    }
+    @default {
+        <p>Não é nem A nem B</p>
+    }
+
+} -->

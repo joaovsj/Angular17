@@ -35,9 +35,9 @@ export class IterationComponent {
 
   // Empty
   public  cars = [
-    "Toro",
-    "Kwid",
-    "Gol"
+    // "Toro",
+    // "Kwid",
+    // "Gol"
   ];
 
 
