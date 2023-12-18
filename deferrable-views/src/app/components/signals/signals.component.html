@@ -1,1 +1,24 @@
-<p>signals works!</p>
+
+<h2>Signals</h2>
+
+<p>{{ firstName() }} {{ lastName() }}</p>
+<p>Full Name: {{ fullName() }}</p>
+
+{{ address() }}
+
+<ul>
+    @for(item of items(); track item){
+        
+        <li> {{ item }} </li>        
+    }
+</ul>
+
+<button (click)="updateName()">Mudar o Nome</button>
+
+<button (click)="updateArray()">Atualizar o Array</button>
+
+
+<br>
+<input type="text" #newAddress>
+
+<button (click)="showAddress(newAddress.value)">Show Address</button>
