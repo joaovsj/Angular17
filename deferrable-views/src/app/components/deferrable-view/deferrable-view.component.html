@@ -28,18 +28,19 @@
 <button (click)="changeState()">Change State </button>
 
 <!-- 
- 
-
 
 @defer(
-    when state; => vai ser executado quando state for TRUE
-){ -->
+    when state; => vai ser executado quando a variável state for TRUE
 
-@defer(
-    on timer(4s);
+    on timer(4s);   
     on interaction(show);
     on hover;
     on viewport;
+
+){ -->
+
+@defer(
+    on interaction(show);   
 ){
 
     <app-new-component />
