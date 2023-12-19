@@ -1,1 +1,19 @@
-<p>knowledge works!</p>
+
+<div class="container">
+    <h2>Conhecimentos</h2>
+
+    <ul>
+        @for(item of arrayKnowledge(); track item){
+            <li>
+                <!-- Se colocarmos [dentro da propriedade] o TEMPLATE espera uma variável -->
+                <img 
+                    [src]="item.src"  
+                    [alt]="item.alt"
+                    loading="lazy"    
+                    width="22px"
+                    height="24px"
+                >
+            </li>
+        }
+    </ul>
+</div>
