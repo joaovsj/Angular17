@@ -1,1 +1,16 @@
-<p>experiences works!</p>
+<div class="container">
+    <h2>Últimas Experiências</h2>
+
+    @for(item of arrayExperiences(); track item){
+        <details>
+            <summary>
+                <p>
+                    <strong> {{ item.summary.strong }} </strong>
+                    {{ item.summary.p }}
+                </p>
+            </summary>
+            <!-- INNER HTML é uma forma de podermos criar o HTML inclusive dentro do template ele entender para ser renderizado -->
+            <article [innerHTML]="item.text"></article>
+        </details>
+    }
+</div>
