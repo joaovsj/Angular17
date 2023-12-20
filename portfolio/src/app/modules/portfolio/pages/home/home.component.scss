@@ -1,0 +1,13 @@
+
+// We're working within the scope of the component
+:host{
+    
+    section{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 0;
+        text-align: center
+    }
+    
+}
