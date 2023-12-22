@@ -21,6 +21,7 @@
         img{
             border-radius: 100px;
             border: 5px solid var(--white);
+            margin-bottom: 15px;
         }
     }
 
@@ -54,9 +55,10 @@
                 width: 335px;
                 height: 77px;
                 margin: 0;
-                padding: 0;
+                padding: 0 0 0 30px;
+            
                 display: flex;
-                justify-content: center;
+                justify-content: flex-start;
                 align-items: center;
                 gap: 20px; 
 
@@ -97,7 +99,7 @@
         aside nav ul li, 
         aside nav ul li a,
         section figure{
-            width: 100%;
+            width: 100%;  
         }
     }
 }
