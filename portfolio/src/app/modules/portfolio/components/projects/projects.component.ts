@@ -1,7 +1,18 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 
 // INTERFACE
 import { IProjects } from '../../interface/IProjects.interface';
+
+// MATERIAL
+import { MatDialog } from '@angular/material/dialog';
+
+// ENUM
+import { EDialogPanelClass } from '../../enum/EDialogPanelClass.enum';
+
+// Components
+import { DialogProjectsComponent } from '../dialog/dialog-projects/dialog-projects.component';
+
+
 
 @Component({
   selector: 'app-projects',
@@ -12,6 +23,7 @@ import { IProjects } from '../../interface/IProjects.interface';
 })
 export class ProjectsComponent {
 
+  #dialog = inject(MatDialog)
   // Tipo =  Array da interface Projects
   public arrayProjects = signal<IProjects[]>([
     {
@@ -71,4 +83,10 @@ export class ProjectsComponent {
     }
   ])
 
+  public openDialog(data: IProjects){
+    this.#dialog.open(DialogProjectsComponent, {
+      data: data,
+      panelClass: EDialogPanelClass.PROJECTS
+    })
+  }
 } 
