@@ -1,5 +1,5 @@
 export enum EDialogPanelClass {
     
-    PROJECTS = 'dialog-container',
+    PROJECTS = 'dialog-container-projects',
 
 }

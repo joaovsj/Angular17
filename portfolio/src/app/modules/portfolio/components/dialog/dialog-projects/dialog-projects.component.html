@@ -1,1 +1,23 @@
-<p>dialog-projects works!</p>
+<header>
+    <!-- ? means the title maybe is null -->
+    <h2>{{ getData()?.title }}</h2>
+
+    <button (click)="closeModal()">
+        <img src="assets/icons/dialog/close.svg" alt="Botão para fechar o dialog"> 
+    </button>
+</header>
+
+<mat-dialog-content>
+    <h3>Descrição</h3>
+
+    <article [innerHTML]="getData()?.description"></article>
+
+    <nav>
+        @for(item of getData()?.links; track item){
+            <!-- [] means the property HREF will be waiting for a variable -->
+            <a [href]="item.href" target="_blanck" class="btn btn-primary">
+                {{ item.name }}
+            </a>
+        }
+    </nav>
+</mat-dialog-content>

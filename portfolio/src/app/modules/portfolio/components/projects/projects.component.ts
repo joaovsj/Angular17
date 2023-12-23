@@ -1,4 +1,5 @@
 import { Component, inject, signal } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 // INTERFACE
 import { IProjects } from '../../interface/IProjects.interface';
@@ -12,12 +13,10 @@ import { EDialogPanelClass } from '../../enum/EDialogPanelClass.enum';
 // Components
 import { DialogProjectsComponent } from '../dialog/dialog-projects/dialog-projects.component';
 
-
-
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss'
 })
