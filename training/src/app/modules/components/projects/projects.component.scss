@@ -58,10 +58,13 @@
 
             
             .circles{
+                margin-top: 4vh;
                 display: flex;
                 gap: 12px;
 
-                span{
+                button{
+                    border: none;   
+                    cursor: pointer;
                     padding: 7px;
                     border-radius: 50%;
                     background-color: #cfcfcf;
@@ -75,7 +78,6 @@
             overflow-y: hidden;
             height: 450px;
             width: 700px;      
-            display: flex;     
 
             .container-img{
                 width: 2100px;
@@ -83,8 +85,10 @@
                 display: flex;
                 position: relative;
 
+                // margin-left: -700px;
+
                 .box-img{
-                    width: 700px !important;
+                    width: 700px;
                     height: 450px;
                     top: 20%;
                 

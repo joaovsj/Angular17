@@ -36,6 +36,10 @@ export class KnowledgeComponent {
     {
       src: "assets/img/icons/python.svg",
       alt: "Python"
+    },
+    {
+      src: "assets/img/icons/jira.svg",
+      alt: "Jira Software"
     }
   ]);
 

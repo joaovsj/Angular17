@@ -1,0 +1,47 @@
+:host{
+
+
+    footer{
+        width: 100%;
+        height: 20vh;
+        background-color: #FF005C;
+        display: flex;
+        
+
+        div{
+            padding: 40px;
+            display: flex;
+            margin-left: 20px;
+            flex-direction: column;
+            gap: 10px;
+
+            h4{
+                font-size: 2rem;
+            }
+
+            ul{
+                list-style-type: none;
+                display: flex;
+                gap: 10px;
+                margin-left: 2px;
+
+                li i{
+                    font-size: 1.5rem;
+                }
+            }
+        }   
+
+        div:last-child{
+            height: 100%;
+            width: 60%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+
+        }
+
+
+    }
+
+}

@@ -1,84 +1,75 @@
 <div class="container">
     <div class="text">
-        <h5>Projects</h5>
+        <h5 id="projects">Projects</h5>
     </div>
     
     <div class="right-side">
 
-                                <div class="slider">
-                                    <div class="container-img">
-                                        <div class="box-img">
-                                            <img 
-                                                [src]="'assets/img/projects/first.jpg'" 
-                                                [alt]="" 
-                                                width="100%"
-                                                height="100%"
-                                            >
-
-                                            <div class="details">
-                                                <h3>Title</h3>
-                                                
-                                                <div>
-                                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, earum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, ad.adipisicing elit. Inventore, ad
-                                                        adipisicing elit. Inventore, adadipisicing elit. Inventore, ad    </p>
-                                                </div>
-
-                                                <button>Conheça</button>
-                                            </div>
-
-                                        </div>
+        <div class="slider">
+            <div class="container-img">
+                @for(item of projects(); track item; let f = $first){
+                    
+                        @if(f){
+                            <div class="box-img"
+                                [style.margin-left]="marginCurrent"
+                            >
+                                <img 
+                                    [src]="item.img.src" 
+                                    [alt]="item.img.alt" 
+                                    width="100%"
+                                    height="100%"
+                                    style="margin-left: marginCurrent;"
+                                >
+    
+                                <div class="details">
+                                    <h3>{{ item.details.title }}</h3>
+                                    <div>
+                                        <p>{{ item.details.description }}</p>
                                     </div>
-                                    <div class="container-img">
-                                        <div class="box-img">
-                                            <img 
-                                                [src]="'assets/img/projects/first.jpg'" 
-                                                [alt]="" 
-                                                width="100%"
-                                                height="100%"
-                                            >
-
-                                            <div class="details">
-                                                <h3>Title</h3>
-                                                
-                                                <div>
-                                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, earum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, ad.adipisicing elit. Inventore, ad
-                                                        adipisicing elit. Inventore, adadipisicing elit. Inventore, ad    </p>
-                                                </div>
-
-                                                <button>Conheça</button>
-                                            </div>
-
-                                        </div>
+    
+                                    <a href="#">
+                                        <button>Conheça</button>
+                                    </a>
+                                    
+                                </div>
+    
+                            </div> <!-- box-img -->
+                        }@else {
+                            <div class="box-img">
+                                <img 
+                                    [src]="item.img.src" 
+                                    [alt]="item.img.alt" 
+                                    width="100%"
+                                    height="100%"
+                                >
+    
+                                <div class="details">
+                                    <h3>{{ item.details.title }}</h3>
+                                    <div>
+                                        <p>{{ item.details.description }}</p>
                                     </div>
-                                    <div class="container-img">
-                                        <div class="box-img">
-                                            <img 
-                                                [src]="'assets/img/projects/first.jpg'" 
-                                                [alt]="" 
-                                                width="100%"
-                                                height="100%"
-                                            >
+    
+                                    <a href="#">
+                                        <button>Conheça</button>
+                                    </a>
+                                    
+                                </div>
+    
+                            </div> <!-- box-img -->
+                        }
+                            
 
-                                            <div class="details">
-                                                <h3>Title</h3>
-                                                
-                                                <div>
-                                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, earum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, ad.adipisicing elit. Inventore, ad
-                                                        adipisicing elit. Inventore, adadipisicing elit. Inventore, ad    </p>
-                                                </div>
-
-                                                <button>Conheça</button>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div> 
+                      
+                
+                }
+            </div> <!-- container-img -->
+        </div> 
 
 
             <div class="circles">
-                <span></span>
-                <span></span>
-                <span></span>
+                <button (click)="changeImage(1)"></button>
+                <button (click)="changeImage(2)"></button>
+                <button (click)="changeImage(3)"></button>
             </div>
 
     </div> <!--close section-->
