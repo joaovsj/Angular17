@@ -1,0 +1,152 @@
+:host{
+    .container{
+        height: 70vh;
+        width: 100%;
+        margin-bottom: 10vh;
+        display: flex;
+
+        .text{
+            width: 45%;
+            height: 100%;
+            // background-color: blue;
+            display: flex;
+            align-items: center;
+            position: relative;
+
+            &::after{
+                content: '';
+                display: block;
+                background-color: #FF005C;
+                // padding: 40px;
+                width: 4px;
+                height: 50%;
+                transform: translateY(-55%);
+                position: absolute;
+                left: 15%;
+
+            }
+
+            h5{
+                position: absolute;
+                left: 18%;
+                font-size: 1.5rem;
+
+
+                &::before{
+                    content: '';
+                    display: block;
+                    padding: 10px;
+                    border-radius: 50%;
+                    background-color: #FF005C;
+                    position: absolute;
+                    top: 20%;
+                    left: -32%;
+                }
+            }
+            
+        }
+
+
+        .right-side{
+            width: 48%;
+            height: 100%;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;    
+            align-items: center;
+
+            
+            .circles{
+                display: flex;
+                gap: 12px;
+
+                span{
+                    padding: 7px;
+                    border-radius: 50%;
+                    background-color: #cfcfcf;
+            }
+        }
+
+        .slider{
+            margin-top: 5vh;
+            border-radius: 8px;
+            overflow: auto;
+            overflow-y: hidden;
+            height: 450px;
+            width: 700px;      
+            display: flex;     
+
+            .container-img{
+                width: 2100px;
+                height: 450px;
+                display: flex;
+                position: relative;
+
+                .box-img{
+                    width: 700px !important;
+                    height: 450px;
+                    top: 20%;
+                
+                    .details{
+                        padding: 20px;
+                        height: 200px;
+                        width: 300px;                    
+                        color: white;
+                        position: absolute;
+                        top: 57%;
+                        z-index: 99;
+                        
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+
+                        div{
+                            width: 650px;
+                        }
+
+                        p{
+                            text-wrap: wrap;
+                        }
+
+                        button{
+                            width: 140px;
+                            padding: 10px;
+                            background-color: #00FF85;
+                            border: none;
+                            border-radius: 8px;
+                            color: #FFF;
+                            font-family: 'Outfit', sans-serif;
+                            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+                            cursor: pointer;
+                            transition: .2s;
+                           
+                            &:hover{
+                                background-color: #00b55d;
+                            }   
+                        }
+
+                        // &::after{
+                        //     content: '';
+                        //     display: block;
+                        //     position: absolute;
+                        //     top: 0%;
+                        //     height: 100%;
+                        //     width: 100%;
+                        //     background-color: rgba(0, 0, 0, 0.358);
+                        //     // z-index: ;
+                        // }
+                    }
+                }
+            }
+        }
+
+            
+        } /**/
+
+
+
+
+
+    }
+}

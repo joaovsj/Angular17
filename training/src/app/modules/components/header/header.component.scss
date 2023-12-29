@@ -7,6 +7,23 @@ header{
     display: flex;
     align-items: center;
     
+    h3{
+        margin-left: 10vw;
+        position: relative;
+
+        &::before{
+            content: '';
+            display: inline-block;
+            padding: 10px;
+            border-radius: 50%;
+            background-color: #FF005C;
+            position: absolute;
+            left: -30%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+    }
 
     ul{
         list-style-type: none;

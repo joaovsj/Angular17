@@ -1,0 +1,15 @@
+<div>
+    <h2>Stacks</h2>
+    <ul>
+        @for(item of knowledges(); track item){
+            <li>
+                <img 
+                    [src]="item.src" 
+                    [alt]="item.alt" 
+                    [title]="item.alt"
+                    width="44px" 
+                    height="44px">
+            </li>
+        }
+    </ul>
+</div>
