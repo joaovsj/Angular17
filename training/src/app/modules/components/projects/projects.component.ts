@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, signal } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 
 // Interface
 import { IProjects } from '../../interface/IProjects';
@@ -11,7 +11,11 @@ import { IProjects } from '../../interface/IProjects';
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss'
 })
-export class ProjectsComponent {
+export class ProjectsComponent implements OnInit {
+
+
+  public marginCurrent: number = 0
+  public circles = [true, false, false];
 
   public projects = signal<IProjects[]>([
     {
@@ -52,14 +56,43 @@ export class ProjectsComponent {
     }
   ])
 
-  public current = 0;
-  public marginCurrent = 0;
-
-  changeImage(value: number){
-    if(value == 2){
-      this.marginCurrent = 700
-      console.log('teste');
-    }
+  constructor(){
+    this.marginCurrent = 0;
   }
+
+  ngOnInit(){
+    // setInterval(() => {
+
+    //   if(this.marginCurrent === 1400){
+    //     this.marginCurrent = 0;
+    //   }else{
+    //     this.marginCurrent+=700;
+    //   }
+    // }, 4000)
+  }
+
+  changeImage(image: number){
+
+    if(image == 0){
+      this.marginCurrent = 0
+    }else if(image  == 1){
+      this.marginCurrent = 700
+    }else{
+      this.marginCurrent = 1400
+    }
+
+    this.setColorCircle(image);
+  }
+
+  setColorCircle(circle: number){
+    this.circles.forEach((item, index)=>{
+      if(item)
+        this.circles[index] = false;
+    })
+    
+    this.circles[circle] = true; 
+  }
+
+  
 
 }

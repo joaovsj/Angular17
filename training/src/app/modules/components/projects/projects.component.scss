@@ -68,14 +68,17 @@
                     padding: 7px;
                     border-radius: 50%;
                     background-color: #cfcfcf;
+                }
+
+                .active{
+                    background-color: #00FF85;
+                }
             }
-        }
 
         .slider{
             margin-top: 5vh;
             border-radius: 8px;
-            overflow: auto;
-            overflow-y: hidden;
+            overflow: hidden;
             height: 450px;
             width: 700px;      
 
@@ -84,7 +87,7 @@
                 height: 450px;
                 display: flex;
                 position: relative;
-
+                transition: .4s;
                 // margin-left: -700px;
 
                 .box-img{
@@ -113,23 +116,26 @@
                             text-wrap: wrap;
                         }
 
-                        button{
-                            width: 140px;
-                            padding: 10px;
-                            background-color: #00FF85;
-                            border: none;
-                            border-radius: 8px;
-                            color: #FFF;
-                            font-family: 'Outfit', sans-serif;
-                            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-                            cursor: pointer;
-                            transition: .2s;
-                           
-                            &:hover{
-                                background-color: #00b55d;
-                            }   
+                        .links{
+                            display: flex;
+                            gap: 5px;
+
+                            a i{
+                                font-size: 2rem;
+                            }
+                        
+                            a:first-child{
+                                color: rgb(0, 200, 255);
+                            }
+
+                            a:last-child{
+                                color: #1c1c1c;
+                            }
                         }
 
+                   
+
+                        
                         // &::after{
                         //     content: '';
                         //     display: block;
@@ -144,6 +150,8 @@
                 }
             }
         }
+
+       
 
             
         } /**/

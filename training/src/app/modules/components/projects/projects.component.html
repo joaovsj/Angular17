@@ -7,18 +7,17 @@
 
         <div class="slider">
             <div class="container-img">
-                @for(item of projects(); track item; let f = $first){
+                @for(item of projects(); track item; let first = $first){
                     
-                        @if(f){
+                        @if(first){
                             <div class="box-img"
-                                [style.margin-left]="marginCurrent"
+                                [style.margin-left]="'-'+marginCurrent+'px'"
                             >
                                 <img 
                                     [src]="item.img.src" 
                                     [alt]="item.img.alt" 
                                     width="100%"
                                     height="100%"
-                                    style="margin-left: marginCurrent;"
                                 >
     
                                 <div class="details">
@@ -27,9 +26,15 @@
                                         <p>{{ item.details.description }}</p>
                                     </div>
     
-                                    <a href="#">
-                                        <button>Conheça</button>
-                                    </a>
+                                    <div class="links">
+                                        <a href="#">
+                                            <i class="fa-brands fa-linkedin"></i>
+                                        </a>
+                                        <a href="#">
+                                            <i class="fa-brands fa-square-github"></i>
+                                        </a>
+                                    </div>
+
                                     
                                 </div>
     
@@ -63,13 +68,13 @@
                 
                 }
             </div> <!-- container-img -->
-        </div> 
+        </div> <!-- slider -->
 
 
             <div class="circles">
-                <button (click)="changeImage(1)"></button>
-                <button (click)="changeImage(2)"></button>
-                <button (click)="changeImage(3)"></button>
+                <button (click)="changeImage(0)" [class.active]="circles[0]"></button>
+                <button (click)="changeImage(1)" [class.active]="circles[1]"></button>
+                <button (click)="changeImage(2)" [class.active]="circles[2]"></button>
             </div>
 
     </div> <!--close section-->

@@ -21,7 +21,31 @@
 </section>
 
 <section>
-    <app-projects />
+    
+    @defer(on viewport){
+     
+
+        <app-projects />
+    } @placeholder{
+
+        <div class="box-loading">
+            <span></span>
+            <p>Carregando...</p>    
+        </div>
+        
+    }@loading {
+        
+        <div class="box-loading">
+            <span></span>
+            <p>Carregando...</p>    
+        </div>
+    }@error {
+        <div class="box-loading error">
+            <p>Ops, ocorreu um erro ao carregar o conteúdo!</p>
+        </div>
+    }
+
+    
 </section>
 
 <app-footer />

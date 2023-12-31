@@ -84,4 +84,62 @@
         height: 30vh;
         background-color: #00A3FF;
     }
+
+    .box-loading{
+        height: 80vh;
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+
+        span{
+            position: relative;
+            width: 64px;
+            height: 60px;
+
+            &::after{
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                background-color: #00A3FF;
+                width: 100%;
+                height: 50%;
+                border-radius: 0 0 50px 50px;
+                animation: move 0.5s linear infinite alternate;
+
+            }
+
+            &::before{
+                content: '';
+                position: absolute;
+                left: 50%;
+                top: 0;
+                width: 24px;
+                height: 24px;
+                background-color: #00FF85;
+                transform: translateX(-50%) rotate(0deg);
+                animation: rotate 2s linear infinite;
+                
+            }
+        }
+
+        @keyframes move{
+            0%{
+                transform: rotate(10deg);
+            }
+            100%{
+                transform: rotate(-10deg);
+            }
+        }
+
+        @keyframes rotate{
+            100%{
+                transform: translateX(-50%) rotate(360deg);
+            }
+        }
+    }
 }
