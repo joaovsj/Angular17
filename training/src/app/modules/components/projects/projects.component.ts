@@ -22,12 +22,15 @@ export class ProjectsComponent implements OnInit {
       id: 1,
       img: {
         src: "assets/img/projects/first.png",
-        alt: "teste"
+        alt: "imagem"
       },
       details: {
-        title: "Titulo de exemplo",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, earum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, ad.adipisicing elit. Inventore, adadipisicing elit. Inventore, adadipisicing elit. Inventore, ad",
-        link: ""
+        title: "LaraClothes",
+        description: "Site desenvolvido em Laravel 9 para uma loja fictícia de vendas de roupas online. Utiliza recursos muito importantes do Framework: Middlewares, Providers, Migrations, Entre muitas outras coisas...",
+        link: {
+          linkedIn: "https://www.linkedin.com/posts/jo%C3%A3o-victor-a38512232_antigamente-eu-n%C3%A3o-entendia-porque-muitas-activity-7053912624316432386-S8ju?utm_source=share&utm_medium=member_desktop",
+          github: "https://github.com/joaovsj/LaravelClothes?tab=readme-ov-file",
+        }
       }
     },
     {
@@ -39,7 +42,10 @@ export class ProjectsComponent implements OnInit {
       details: {
         title: "Titulo de exemplo",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, earum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, ad.adipisicing elit. Inventore, adadipisicing elit. Inventore, adadipisicing elit. Inventore, ad",
-        link: ""
+        link: {
+          linkedIn: "",
+          github: "",
+        }
       }
     },
     {
@@ -51,7 +57,10 @@ export class ProjectsComponent implements OnInit {
       details: {
         title: "Titulo de exemplo",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, earum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, ad.adipisicing elit. Inventore, adadipisicing elit. Inventore, adadipisicing elit. Inventore, ad",
-        link: ""
+        link: {
+          linkedIn: "",
+          github: "",
+        }
       }
     }
   ])

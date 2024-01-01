@@ -7,7 +7,10 @@ export interface IProjects {
     details: {
         title: string,
         description: string,
-        link: string
+        link: { 
+            linkedIn: string, 
+            github: string 
+        }
     }
 
 }
