@@ -21,7 +21,7 @@ export class ProjectsComponent implements OnInit {
     {
       id: 1,
       img: {
-        src: "assets/img/projects/first.jpg",
+        src: "assets/img/projects/first.png",
         alt: "teste"
       },
       details: {
@@ -61,14 +61,21 @@ export class ProjectsComponent implements OnInit {
   }
 
   ngOnInit(){
-    // setInterval(() => {
+    setInterval(() => {
+      if(this.marginCurrent === 1400){
+        this.marginCurrent = 0;
+        this.setColorCircle(0);
+      }else{
 
-    //   if(this.marginCurrent === 1400){
-    //     this.marginCurrent = 0;
-    //   }else{
-    //     this.marginCurrent+=700;
-    //   }
-    // }, 4000)
+        if(this.marginCurrent == 0){
+          this.setColorCircle(1);
+        }else{
+          this.setColorCircle(2);
+        }
+
+        this.marginCurrent+=700;
+      }
+    }, 4000)
   }
 
   changeImage(image: number){
