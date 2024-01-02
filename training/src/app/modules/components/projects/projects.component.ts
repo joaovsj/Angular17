@@ -52,7 +52,7 @@ export class ProjectsComponent implements OnInit {
       id: 3,
       img: {
         src: "assets/img/projects/third.png",
-        alt: "teste"
+        alt: "Grade"
       },
       details: {
         title: "Titulo de exemplo",
