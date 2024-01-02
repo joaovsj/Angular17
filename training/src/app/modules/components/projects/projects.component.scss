@@ -215,10 +215,10 @@
 
     @media (max-width: 750px){
         .container {
+
+            height: 60vh;
             flex-direction: column;
             align-items: center;
-        
-
 
             .text{
                 width: 100%;
@@ -226,10 +226,6 @@
                 h5{
                     margin-left: 12vw;
                     left: 0%;
-
-                    &::before{
-                        // display: ;
-                    }
                 }
 
                 &::after{
@@ -245,7 +241,7 @@
                 align-items: center;
             
                 .circles{
-                    margin-top: 0;
+                    margin-top: -20vh;
                 }
 
                 .slider{
@@ -268,20 +264,7 @@
                 }
             }
 
-            
-
-            // .slider .container-img{
-            //     height: 60%;
-            //     width: 80%;
-
-            //    .box-img .details{
-            //         width: 100px;
-            //    }
-            // }
-
-            // .right-side .slider{
-
-            // }
+        
         }
         
      
