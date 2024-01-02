@@ -36,14 +36,14 @@ export class ProjectsComponent implements OnInit {
     {
       id: 2,
       img: {
-        src: "assets/img/projects/second.jpg",
+        src: "assets/img/projects/other.png",
         alt: "teste"
       },
       details: {
-        title: "Titulo de exemplo",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, earum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, ad.adipisicing elit. Inventore, adadipisicing elit. Inventore, adadipisicing elit. Inventore, ad",
+        title: "Tô Saindo",
+        description: "Sistema desenvolvido pra controle de entrada e saída de alunos por causa de janelas na grade curricular, horários na semana que alunos não tem aula e podem sair e entrar fora de horário",
         link: {
-          linkedIn: "",
+          linkedIn: "https://www.linkedin.com/posts/jo%C3%A3o-victor-a38512232_oii-gente-eu-queria-mostrar-um-pouco-activity-7002977676231634944-4i9K?utm_source=share&utm_medium=member_desktop",
           github: "",
         }
       }
@@ -51,15 +51,15 @@ export class ProjectsComponent implements OnInit {
     {
       id: 3,
       img: {
-        src: "assets/img/projects/third.jpg",
+        src: "assets/img/projects/third.png",
         alt: "teste"
       },
       details: {
         title: "Titulo de exemplo",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, earum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, ad.adipisicing elit. Inventore, adadipisicing elit. Inventore, adadipisicing elit. Inventore, ad",
+        description: "Projeto simples desenvolvido em algumas horas vagas em conjunto com um amigo chamado Vitor Miranda. O objetivo era criar uma forma dinâmica de validação de notas, Grades está relacionado a notas/menção escolar em inglês.",
         link: {
-          linkedIn: "",
-          github: "",
+          linkedIn: "https://www.linkedin.com/posts/joão-victor-a38512232_em-algumas-instituições-de-ensino-eles-usam-activity-7085350652339470336-OIVD/?utm_source=share&utm_medium=member_desktop",
+          github: "https://github.com/joaovsj/Grade",
         }
       }
     }
@@ -84,7 +84,7 @@ export class ProjectsComponent implements OnInit {
 
         this.marginCurrent+=700;
       }
-    }, 4000)
+    }, 5000)
   }
 
   changeImage(image: number){

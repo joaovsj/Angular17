@@ -16,6 +16,7 @@
         }
 
         ul{
+            padding: 20px;
             list-style-type: none;
             display: flex;
             gap: 20px;
@@ -32,11 +33,37 @@
                 align-items: center;
                 justify-content: center;
 
+                img{
+                    width: 44px;
+                    height: 44px;
+                }
+
                 &:hover{
                     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
                 }
             }
         }
+    }
+
+    @media (max-width: 1400px){
+        div ul{
+
+            overflow-x: auto;
+        
+            li{
+                padding: calc(1vmin + 10px);
+
+                img{
+                    height: calc(2vmin + 30px);
+                    width: calc(2vmin + 30px);
+                }
+            }
+        }
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: blue;
+        border-radius: 10px;
     }
 
 }

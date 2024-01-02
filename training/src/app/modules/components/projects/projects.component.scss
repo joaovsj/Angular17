@@ -93,25 +93,26 @@
                 box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
                 // margin-left: -700px;
 
+
+                &::after{
+                    content: '';
+                    display: block;
+                    height: 100%;
+                    width: 100%;
+                    position: absolute;
+                    z-index: 5;
+                    top: 0%;
+                    background-color: #1c1c1ca1;
+                }
+
                 .box-img{
                     width: 700px;
                     height: 450px;
                     top: 20%;
                 
-                    &{
-                        object-fit: cover;
-                    }
-
-                    &::after{
-                        content: '';
-                        display: block;
-                        height: 100%;
-                        width: 100%;
-                        position: absolute;
-                        z-index: 5;
-                        top: 0%;
-                        background-color: #1c1c1ca1;
-                    }
+                    // &{
+                    //     object-fit: cover;
+                    // }
 
                     .details{
                         padding: 20px;
@@ -151,6 +152,7 @@
                                 border-radius: 6px;
 
                                 i{
+                                    pointer-events: none;
                                     font-size: 2rem;
                                 }
 

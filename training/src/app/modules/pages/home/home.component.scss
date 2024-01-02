@@ -69,8 +69,6 @@
             height: 600px;
             position: relative;
             
-
-
             & img{  
                 height: 100%;
                 width: 100%;
@@ -142,4 +140,35 @@
             }
         }
     }
+
+    @media (max-width: 1056px) {
+        .second{
+            .photo{
+                width: 400px;
+                height: 400px;
+            }
+        }
+    }   
+
+    @media (max-width: 750px){
+        .first-section{
+            flex-direction: column;
+            width: 100vw;
+
+            .first, .second{
+                width: 100%;
+            }
+
+            .first{
+                margin-top: 10vh;
+            }
+
+            .second .photo{
+                width: 280px;
+                height: 280px;
+            }
+        }
+    }
+
+
 }
