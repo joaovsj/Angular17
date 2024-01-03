@@ -55,7 +55,7 @@ export class ProjectsComponent implements OnInit {
         alt: "Grade"
       },
       details: {
-        title: "Titulo de exemplo",
+        title: "Grade",
         description: "Projeto simples desenvolvido em algumas horas vagas em conjunto com um amigo chamado Vitor Miranda. O objetivo era criar uma forma dinâmica de validação de notas, Grades está relacionado a notas/menção escolar em inglês.",
         link: {
           linkedIn: "https://www.linkedin.com/posts/joão-victor-a38512232_em-algumas-instituições-de-ensino-eles-usam-activity-7085350652339470336-OIVD/?utm_source=share&utm_medium=member_desktop",
