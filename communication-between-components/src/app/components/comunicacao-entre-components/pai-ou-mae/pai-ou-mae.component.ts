@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { OutputComponent } from '../output/output.component';
 import { InputComponent } from '../input/input.component';
 
@@ -15,6 +15,16 @@ export class PaiOuMaeComponent {
   public showMessage(message: string){
     window.alert(message)    
   }
+
+  public newName = signal("Valor inicial")
+
+  public receiveName(value: any){
+    console.log(value);
+  }
+
+  // public receiveName(name: string) {
+  //   console.log(name);
+  // }
 
 
 }

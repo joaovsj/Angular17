@@ -12,11 +12,15 @@
 
 
 <!-- Aqui "someName", é o nome de uma variavel/propriedade declarada como um INPUT -->
-<app-input someName="João"/>
+<app-input someName="João" nameOfClass="success" text="Something"/>
 
 <br> <br>
  
 <button class="danger">Works too</button>
 
 
-<app-output />
+
+
+<app-output (outputName)="receiveName($event)" />
+
+{{ newName() }}
