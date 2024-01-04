@@ -4,6 +4,7 @@ import { RouterOutlet } from '@angular/router';
 
 // Components
 import { PaiOuMaeComponent } from './components/comunicacao-entre-components/pai-ou-mae/pai-ou-mae.component';
+import { AngularPipesComponent } from './components/pipes/angular-pipes/angular-pipes.component';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,8 @@ import { PaiOuMaeComponent } from './components/comunicacao-entre-components/pai
   imports: [
     CommonModule, 
     RouterOutlet,
-    PaiOuMaeComponent
+    PaiOuMaeComponent,
+    AngularPipesComponent
   ],
   template: `
     <router-outlet></router-outlet>
@@ -19,7 +21,8 @@ import { PaiOuMaeComponent } from './components/comunicacao-entre-components/pai
     <h1>Comunicação entre Components</h1>
     
     <!-- Component PAI -->
-    <app-pai-ou-mae />
+    <!-- <app-pai-ou-mae /> -->
+    <app-angular-pipes />
   `,
 })
 export class AppComponent {

@@ -1,0 +1,21 @@
+<h2>Working with Date</h2>
+
+<!-- 
+    Existem várias formas de trabalharmos com a manipulação dos dados exibidos no 
+    nosso template, um recurso muito importante são os PIPES:
+    
+    json => exibe um JSON
+    date => permite manipularmos datas
+    uppercase => transforma todas as letras em UPPERCASE
+    async => informa para o template que o que será retornado é um PROMISE e impede um erro caso algo, seja renderizado.
+
+-->
+
+
+<ul>
+    <li>{{ currentDate() | date: 'dd/MM/yyyy' }}</li>
+
+    <li>{{ "João Victor" | uppercase }}</li>
+
+    <li>{{ "JOÃO VICTOR" | lowercase }}</li>
+</ul>
