@@ -11,6 +11,8 @@ import { InputComponent } from '../input/input.component';
 })
 export class PaiOuMaeComponent {
 
+  public $name = "teste"
+
 
   public showMessage(message: string){
     window.alert(message)    
@@ -20,6 +22,14 @@ export class PaiOuMaeComponent {
 
   public receiveName(value: any){
     console.log(value);
+  }
+
+  public setAge(event: number){
+    console.log(event);
+  }
+
+  public showData(eventData: Event){
+    console.log(eventData);
   }
 
   // public receiveName(name: string) {

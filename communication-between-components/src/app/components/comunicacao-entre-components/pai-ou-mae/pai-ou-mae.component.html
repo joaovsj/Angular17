@@ -1,9 +1,16 @@
 <p>pai-ou-mae works!</p>
 
 
-<!-- <app-input nameOfClass="danger"/> -->
 
 
+<!-- INPUT
+
+    Enviando os dados do componente PAI para o componente FILHO
+    // Quando formos chamar algum input, não precisamos usar nem parenteses
+
+    <app-nameComponent     nameINPUT="alguma coisa" />
+
+ -->
 <app-input 
     text="Entrar" 
     nameOfClass="success"
@@ -11,16 +18,24 @@
 />
 
 
+<!-- OUTPUT
+
+    Aqui estamos recebendo os dados enviados do componente fillho
+    // precisamos chamar o OUTPUT com parentes para que ele funcione, e só podemos receber os valores com a variável $event
+    
+    <app-nameComponent      (nameOUTPUT)="nomeAlgumaFuncao($event)" />
+
+-->
+
+
 <!-- Aqui "someName", é o nome de uma variavel/propriedade declarada como um INPUT -->
 <app-input someName="João" nameOfClass="success" text="Something"/>
 
 <br> <br>
- 
-<button class="danger">Works too</button>
+
+<app-output (age)="setAge($event)" (outputName)="receiveName($event)" />
 
 
-
-
-<app-output (outputName)="receiveName($event)" />
+<button (click)="showData($event)">Clike me</button>
 
 {{ newName() }}
