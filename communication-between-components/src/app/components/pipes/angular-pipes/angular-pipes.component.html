@@ -31,5 +31,10 @@
     <!-- MinimoValoresAntesDaVirgula.minimoNumerosDepoisDaVirgula-maximoValoresDepoisDaVirgula -->
     <li>Percent: {{ .85 | percent: "1.2-3"}}  </li>
     
+    <!-- Dessa forma podemos customizar nosso PIPE(Manipulá-lo/criá-lo de acordo com a nossa regra de negócio) -->
+    <li> Custom Pipe: {{ "João" | customString: "LOWER"}} </li>
+
+    <!-- Working with age -->   
+    <li> É adulto? {{ 10 | age }}</li>
 
 </ul>

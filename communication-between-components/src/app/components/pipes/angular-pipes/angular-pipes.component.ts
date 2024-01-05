@@ -1,18 +1,16 @@
 import { CurrencyPipe, DatePipe, DecimalPipe, LowerCasePipe, PercentPipe, UpperCasePipe, registerLocaleData } from '@angular/common';
-import { Component, LOCALE_ID, signal } from '@angular/core';
+import { Component, signal } from '@angular/core';
 
-// Registrando dados da localidade
-import localePt from '@angular/common/locales/pt';
-registerLocaleData(localePt);
-
+// Pipe Customizado
+import { CustomStringPipe } from '../../../pipes/custom-string.pipe';
+import { AgePipe } from '../../../pipes/age.pipe';
 
 @Component({
   selector: 'app-angular-pipes',
   standalone: true,
-  imports: [DatePipe, UpperCasePipe, LowerCasePipe, CurrencyPipe, DecimalPipe, PercentPipe],
+  imports: [DatePipe, UpperCasePipe, LowerCasePipe, CurrencyPipe, DecimalPipe, PercentPipe, CustomStringPipe, AgePipe],
   templateUrl: './angular-pipes.component.html',
-  styleUrl: './angular-pipes.component.scss',
-  providers:  [{ provide: LOCALE_ID, useValue: 'pt-BR'}]
+  styleUrl: './angular-pipes.component.scss'  
 })
 export class AngularPipesComponent {
 
