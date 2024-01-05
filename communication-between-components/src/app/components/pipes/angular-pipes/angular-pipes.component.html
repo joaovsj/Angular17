@@ -19,3 +19,17 @@
 
     <li>{{ "JOÃO VICTOR" | lowercase }}</li>
 </ul>
+
+<ul>
+    <p>Trabalhando como números em formato Nacional: </p>
+    <li>Currency: {{ 2000.5 | currency: "BRL"}} </li> <!-- Moeda -->
+    
+    <!-- number: "numerosAntesVirgula.minimodeNumerosDoisDaVirgula-maximoNumerosDepoisDaVirgula" -->
+    <li>Number: {{ 2000.50 | number: "0.2-4" }} </li>    
+
+
+    <!-- MinimoValoresAntesDaVirgula.minimoNumerosDepoisDaVirgula-maximoValoresDepoisDaVirgula -->
+    <li>Percent: {{ .85 | percent: "1.2-3"}}  </li>
+    
+
+</ul>
