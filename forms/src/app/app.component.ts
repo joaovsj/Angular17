@@ -13,8 +13,8 @@ import { ReactiveFormsComponent } from './components/reactive-forms/reactive-for
   template: `
     <router-outlet></router-outlet>
 
-    <app-template-driven-forms />
-    <!-- <app-reactive-forms /> -->
+    <!-- <app-template-driven-forms /> -->
+    <app-reactive-forms />
   `
 })
 export class AppComponent {
