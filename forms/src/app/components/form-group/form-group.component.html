@@ -1,0 +1,17 @@
+
+<form [formGroup]="profile">
+    <h2>Tell us about yourself!</h2>
+
+    <input type="text" placeholder="Nome" formControlName="name">
+    <input type="text" placeholder="Idade" formControlName="age">
+
+    <span>What are your stacks?</span>
+    <div formGroupName="stacks">
+        <input type="text" formControlName="front">
+
+        <input type="text" formControlName="back">
+    </div>
+
+    <button>Send</button>
+    <button type="button" (click)="updateData()">Update</button>
+</form>

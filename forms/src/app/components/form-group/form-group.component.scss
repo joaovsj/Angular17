@@ -1,0 +1,41 @@
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 1px solid rgba(0,0,0,0.1);
+    padding: 40px 60px 60px 60px;
+    box-shadow: 1px 4px 5px rgba(0,0,0,0.1);
+    background-color: #FFF;
+
+    input, button{
+       padding: 10px;
+    }
+
+    input{
+        font-family: 'Outfit', sans-serif;
+        border: 2px solid #b8b7b7;
+    }
+
+    button{
+        background-color: rgb(61, 248, 95);
+        border: none;
+        color: #FFF;
+        font-family: 'Outfit', sans-serif;
+        font-weight: 700;
+        transition: .4s;
+        cursor: pointer;
+        
+
+        &:hover{
+            background-color: rgb(60, 190, 84);
+        }
+    }
+
+    button:last-child{
+        background-color: rgb(246, 72, 72) !important;
+
+        &:hover{
+            background-color: rgb(188, 54, 54) !important;
+        }
+    }
+}   

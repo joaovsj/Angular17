@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 // Dependencies to work with Reactive Forms
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-forms',
@@ -13,10 +13,29 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 })
 export class ReactiveFormsComponent {
 
-  name = new FormControl('João Jesus');
+  public profile = new FormGroup({
+    name: new FormControl("joao"),
+    age: new FormControl(18),
 
-  public updateName(){
-    this.name.setValue("Valor Novo");
+    stacks: new FormGroup({
+
+      front: new FormControl("Angular"),
+      back: new FormControl("Laravel"),
+    })
+  });
+
+
+  // name = new FormControl('João Jesus');
+
+  public updateProfile(){
+    this.profile.patchValue({
+      name: "Pedro",
+      age: 14,
+      stacks: {
+        front: 'VueJs',
+        back: "Java"
+      }
+    });
   }
 
 }

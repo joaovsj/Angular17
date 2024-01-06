@@ -1,13 +1,30 @@
 <h2>Reactive Forms</h2>
 
 
-<form>
+<form [formGroup]="profile">
     <label>
         Nome:
-        <input type="text" [formControl]="name">
+        <input type="text" formControlName="name">
+        <!-- <p>{{ profile.value.name }}</p> -->
     </label>
-    <p>{{ name.value }}</p>
 
+    <label>
+        Idade:
+        <input type="text" formControlName="age">
+    </label>
 
-    <button type="button" (click)="updateName()">Update Name</button>
+    <div formGroupName="stacks">
+        <label>
+            Frontend
+            <input type="text" formControlName="front">
+        </label>
+
+        <label>
+            Backend
+            <input type="text" formControlName="back">
+        </label>
+    </div>
+    
+
+    <button type="button" (click)="updateProfile()">Update</button>
 </form>

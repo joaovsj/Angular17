@@ -1,0 +1,23 @@
+<p>training works!</p>
+
+
+<!-- 
+
+    FORM CONTROL 
+
+    Essa é a forma base para trabalharmos com REACTIVE FORMS
+
+
+ -->
+
+<form>
+    <label>
+        Nome:
+        <input type="text" [formControl]="name">
+    </label>
+
+    {{ name.value }}
+
+    <button type="button" (click)="updateName()">Change Name</button>
+
+</form>
