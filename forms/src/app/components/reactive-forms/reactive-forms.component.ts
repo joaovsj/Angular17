@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 // Dependencies to work with Reactive Forms
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-forms',
@@ -21,12 +21,17 @@ export class ReactiveFormsComponent {
 
       front: new FormControl("Angular"),
       back: new FormControl("Laravel"),
-    })
+    }),
+
+    // FormArray é iteravel e nos permite trabalhar com funções de array dentro da estrutura do Formulário
+    favoriteFood: new FormArray([new FormControl("apple"),new FormControl("lemon")])
+
   });
+
+  public adress = new FormControl("");
 
 
   // name = new FormControl('João Jesus');
-
   public updateProfile(){
     this.profile.patchValue({
       name: "Pedro",
@@ -34,8 +39,22 @@ export class ReactiveFormsComponent {
       stacks: {
         front: 'VueJs',
         back: "Java"
-      }
+      },
     });
   }
+
+
+
+
+  public addNewFood(someFood: string){  
+
+    // com o GET pegamos o acesso - as FormArray permite que trabalhemos com funções de Array 
+    const favoriteFood = this.profile.get('favoriteFood') as FormArray; 
+    const newFood = new FormControl(someFood);  
+    
+    favoriteFood.push(newFood)
+
+  }
+
 
 }
