@@ -13,6 +13,14 @@
         <input type="number" formControlName="age">
     </label>
 
+    <label>
+        BIO
+        <input type="text" formControlName="bio">
+    </label>
+    
+    {{ profile.get('bio')?.errors | json }}
+    <button [disabled]="profile.invalid">Test</button>
+
     <div formGroupName="stacks">
         <label>
             Frontend

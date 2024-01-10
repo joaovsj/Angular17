@@ -2,7 +2,22 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 
 // Dependencies to work with Reactive Forms
-import { FormArray, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, ValidatorFn, Validators } from '@angular/forms';
+
+function textValidator(): ValidatorFn{
+  return (control: AbstractControl) => {
+
+    const valorBIO = control.value;
+
+    if(valorBIO.length > 10){
+      return null
+    }
+
+    return { invalidText: "descrição muito curta" }
+    
+  }
+}
+
 
 @Component({
   selector: 'app-reactive-forms',
@@ -47,6 +62,7 @@ export class ReactiveFormsComponent {
   public profile = this.#fb.group({
       name: ['', Validators.minLength(10)],
       age: [18, [Validators.min(18), Validators.max(60)] ],
+      bio: ['', [Validators.required, textValidator()]],
   
       stacks: this.#fb.group({
   
@@ -70,6 +86,7 @@ export class ReactiveFormsComponent {
     this.profile.patchValue({
       name: "Pedro",
       age: 14,
+      bio: "alguma coisa",
       stacks: {
         front: 'VueJs',
         back: "Java"
