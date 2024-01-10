@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-form-group',
@@ -12,14 +12,16 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 })
 export class FormGroupComponent {
 
+  #fb = inject(FormBuilder);
 
-  public profile = new FormGroup({
-    name: new FormControl('joao'),
-    age: new FormControl(18),
 
-    stacks: new FormGroup({
-      front: new FormControl("Angular 17"),
-      back: new FormControl("Laravel")
+  public profile = this.#fb.group({
+    name: [''],
+    age: [18],
+
+    stacks: this.#fb.group({
+      front: ['Angular'],
+      back: ['Laravel']
     })
   });
 

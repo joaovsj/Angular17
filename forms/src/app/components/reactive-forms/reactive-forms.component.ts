@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 
 // Dependencies to work with Reactive Forms
-import { FormArray, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-forms',
@@ -13,21 +13,55 @@ import { FormArray, FormControl, FormGroup, ReactiveFormsModule } from '@angular
 })
 export class ReactiveFormsComponent {
 
-  public profile = new FormGroup({
-    name: new FormControl("joao"),
-    age: new FormControl(18),
+  #fb = inject(FormBuilder);
 
-    stacks: new FormGroup({
+  // constructor(
+  //   private _fb: FormBuilder
+  // ){} 
 
-      front: new FormControl("Angular"),
-      back: new FormControl("Laravel"),
-    }),
+  /*
+    FORM BUILDER
 
-    // FormArray é iteravel e nos permite trabalhar com funções de array dentro da estrutura do Formulário
-    favoriteFood: new FormArray([new FormControl("apple"),new FormControl("lemon")])
+    É uma classe que nos permite trabalharmos com outras classes de Formularios Reativos no Angular,
+    como ARRAY, CONTROL, etc.. através dela, não precisamos ficar declarando como NEW toda hora que
+    quisermos usar.
+  */ 
 
-  });
 
+
+  // public profile = new FormGroup({
+  //   name: new FormControl("joao"),
+  //   age: new FormControl(18),
+
+  //   stacks: new FormGroup({
+
+  //     front: new FormControl("Angular"),
+  //     back: new FormControl("Laravel"),
+  //   }),
+
+  //   // FormArray é iteravel e nos permite trabalhar com funções de array dentro da estrutura do Formulário
+  //   favoriteFood: new FormArray([new FormControl("apple"),new FormControl("lemon")])
+
+  // });
+
+  public profile = this.#fb.group({
+      name: [''],
+      age: [18],
+  
+      stacks: this.#fb.group({
+  
+        front: ["Angular"],
+        back: ["Laravel"],
+      }),
+  
+      // FormArray é iteravel e nos permite trabalhar com funções de array dentro da estrutura do Formulário
+      favoriteFood: this.#fb.array([
+        ['apple'],
+        ['lemon']
+      ])
+  
+    });
+  
   public adress = new FormControl("");
 
 
@@ -45,7 +79,7 @@ export class ReactiveFormsComponent {
 
 
 
-
+  // Forma de criarmos Formulários iteráveis
   public addNewFood(someFood: string){  
 
     // com o GET pegamos o acesso - as FormArray permite que trabalhemos com funções de Array 

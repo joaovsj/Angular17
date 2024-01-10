@@ -2,8 +2,26 @@
 <form [formGroup]="profile">
     <h2>Tell us about yourself!</h2>
 
-    <input type="text" placeholder="Nome" formControlName="name">
-    <input type="text" placeholder="Idade" formControlName="age">
+    <input 
+        type="text" placeholder="Nome" 
+        formControlName="name" required 
+        [class.error]="profile.get('name')?.dirty && profile.get('name')?.invalid" >
+
+    @if( profile.get('name')?.invalid && profile.get('name')?.dirty){
+        <span class="msg">O campo nome é obrigatório!</span>
+    }
+    
+
+    <input 
+        type="text" placeholder="Idade" 
+        formControlName="age" required
+        [class.error]="profile.get('age')?.dirty && profile.get('age')?.invalid" >
+
+    @if(profile.get('age')?.invalid && profile.get('age')?.dirty){
+        <span class="msg">O campo idade é obrigatório</span>
+    }
+    
+    
 
     <span>What are your stacks?</span>
     <div formGroupName="stacks">
@@ -12,6 +30,6 @@
         <input type="text" formControlName="back">
     </div>
 
-    <button>Send</button>
+    <button [class.disabled]="profile.invalid">Send</button>
     <button type="button" (click)="updateData()">Update</button>
 </form>

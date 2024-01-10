@@ -29,6 +29,7 @@ form{
         &:hover{
             background-color: rgb(60, 190, 84);
         }
+
     }
 
     button:last-child{
@@ -38,4 +39,21 @@ form{
             background-color: rgb(188, 54, 54) !important;
         }
     }
-}   
+
+    .msg{
+        color: rgb(246, 72, 72) ;
+    }
+}  
+
+
+.error{
+    border: 1px solid red !important;
+}
+
+
+.disabled{
+    background-color:  rgb(60, 190, 84) !important;     
+    cursor: none !important;
+    pointer-events: none !important;       
+    opacity: 0.6;
+}

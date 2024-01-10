@@ -4,7 +4,7 @@
 <form [formGroup]="profile">
     <label>
         Nome:
-        <input type="text" formControlName="name">
+        <input type="text" formControlName="name" required>
         <!-- <p>{{ profile.value.name }}</p> -->
     </label>
 
@@ -28,6 +28,17 @@
 
     <button type="button" (click)="updateProfile()">Update</button>
 
+    <h4>Forma de acessar o formulário: </h4>
+
+    <p> Válido: {{ profile.valid }} </p>
+    <p> Sujo: {{ profile.dirty }}  </p>
+    <p> Touched: {{ profile.touched }}  </p>
+
+    <h4>Forma de acessar o input: </h4>
+
+    <p> Válido: {{ profile.get('name')?.valid }} </p>
+    <p> Dirty: {{ profile.get('name')?.dirty }} </p>
+    <p> Touched {{ profile.get('name')?.touched }} </p>
 
 <hr>
 
