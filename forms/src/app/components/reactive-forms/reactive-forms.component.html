@@ -10,7 +10,7 @@
 
     <label>
         Idade:
-        <input type="text" formControlName="age">
+        <input type="number" formControlName="age">
     </label>
 
     <div formGroupName="stacks">
@@ -34,11 +34,11 @@
     <p> Sujo: {{ profile.dirty }}  </p>
     <p> Touched: {{ profile.touched }}  </p>
 
-    <h4>Forma de acessar o input: </h4>
+    <h4>Forma de acessar o input: (formArrayName) </h4>
 
-    <p> Válido: {{ profile.get('name')?.valid }} </p>
-    <p> Dirty: {{ profile.get('name')?.dirty }} </p>
-    <p> Touched {{ profile.get('name')?.touched }} </p>
+    <p> Idade Válida: {{ profile.get('age')?.valid }} </p>
+    <p> Idade Dirty: {{ profile.get('age')?.dirty }} </p>
+    <p> Idade Touched {{ profile.get('age')?.touched }} </p>
 
 <hr>
 

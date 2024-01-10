@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 
 // Dependencies to work with Reactive Forms
-import { FormArray, FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-forms',
@@ -45,8 +45,8 @@ export class ReactiveFormsComponent {
   // });
 
   public profile = this.#fb.group({
-      name: [''],
-      age: [18],
+      name: ['', Validators.minLength(10)],
+      age: [18, [Validators.min(18), Validators.max(60)] ],
   
       stacks: this.#fb.group({
   
