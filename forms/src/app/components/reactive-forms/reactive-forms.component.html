@@ -1,7 +1,7 @@
 <h2>Reactive Forms</h2>
 
 
-<form [formGroup]="profile">
+<form [formGroup]="profile" (ngSubmit)="submit()">
     <label>
         Nome:
         <input type="text" formControlName="name" required>
@@ -19,7 +19,7 @@
     </label>
     
     {{ profile.get('bio')?.errors | json }}
-    <button [disabled]="profile.invalid">Test</button>
+    <button [disabled]="profile.invalid" type="submit">Submit</button>
 
     <div formGroupName="stacks">
         <label>
@@ -34,7 +34,7 @@
     </div>
     
 
-    <button type="button" (click)="updateProfile()">Update</button>
+    <button type="button" (click)="updateProfile()" type="button">Update</button>
 
     <h4>Forma de acessar o formulário: </h4>
 
@@ -55,7 +55,7 @@
         <input type="text" #newFood>
     </label>
 
-    <button type="button" (click)="addNewFood(newFood.value)">Add</button>
+    <button type="button" (click)="addNewFood(newFood.value)" type="button">Add</button>
 
 
     <div formArrayName="favoriteFood">
@@ -67,5 +67,5 @@
         }
     </div>
 
-    <button type="button" (click)="addNewFood('teste')">Execute action</button>
+    <button type="button" (click)="addNewFood('teste')" type="button">Execute action</button>
 </form>

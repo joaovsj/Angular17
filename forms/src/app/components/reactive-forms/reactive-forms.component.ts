@@ -108,4 +108,14 @@ export class ReactiveFormsComponent {
   }
 
 
+  submit(){
+    console.log(this.profile.valid);
+
+    if(this.profile.valid){
+      console.log(this.profile.value);
+    }
+
+  }
+
+
 }
