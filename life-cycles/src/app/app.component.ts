@@ -6,11 +6,12 @@ import { RouterOutlet } from '@angular/router';
 import { ContentComponent } from './components/content/content.component';
 import { PracticingComponent } from './components/practicing/practicing.component';
 import { LifeCyclesComponent } from './components/life-cycles/life-cycles.component';
+import { OtherComponent } from './components/other/other.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, ContentComponent, PracticingComponent, LifeCyclesComponent],
+  imports: [CommonModule, RouterOutlet, ContentComponent, PracticingComponent, LifeCyclesComponent, OtherComponent],
   template: `
 
     <router-outlet></router-outlet>
@@ -58,48 +59,52 @@ import { LifeCyclesComponent } from './components/life-cycles/life-cycles.compon
 
     </app-practicing> -->
 
-    <app-life-cycles [name]="nameChange" (resetName)="reset($event)" />
+    <!-- <app-life-cycles [name]="nameChange" (resetName)="reset($event)" /> -->
+
+    <app-other> 
+      <p #text>Texto do content</p>
+    </app-other>
   `,
 })
-export class AppComponent implements OnInit{
+export class AppComponent {
 
   title = 'life-cycles';
 
-  public nameChange: string = ""
+  // public nameChange: string = ""
 
-  // método executado depois que o component é construído e assim INICIALIZADO.
-  ngOnInit(): void {
+  // // método executado depois que o component é construído e assim INICIALIZADO.
+  // ngOnInit(): void {
    
-    setInterval(()=>{
+  //   setInterval(()=>{
 
-      switch (this.nameChange) {
-        case "":
-          this.nameChange = "João"  
-          break;
+  //     switch (this.nameChange) {
+  //       case "":
+  //         this.nameChange = "João"  
+  //         break;
 
-        case "João":
-          this.nameChange = "João Victor"  
-          break;
+  //       case "João":
+  //         this.nameChange = "João Victor"  
+  //         break;
 
-        case "João Victor":
-          this.nameChange = "João Victor Silva"  
-          break;
+  //       case "João Victor":
+  //         this.nameChange = "João Victor Silva"  
+  //         break;
       
-        case "João Victor Silva":
-          this.nameChange = "João Victor Silva de Jesus"  
-          break;
+  //       case "João Victor Silva":
+  //         this.nameChange = "João Victor Silva de Jesus"  
+  //         break;
 
-        default:
-          console.error('something went wrong!');
-          break;
-      }
+  //       default:
+  //         console.error('something went wrong!');
+  //         break;
+  //     }
 
-    }, 5000)
-  }
+  //   }, 5000)
+  // }
 
-  public reset(event: boolean){
-    if(event == true){  
-      this.nameChange = ""
-    }
-  }
+  // public reset(event: boolean){
+  //   if(event == true){  
+  //     this.nameChange = 
+  //   }
+  // }
 }
