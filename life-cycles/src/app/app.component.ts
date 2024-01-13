@@ -1,21 +1,38 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 
 // Components
 import { ContentComponent } from './components/content/content.component';
 import { PracticingComponent } from './components/practicing/practicing.component';
+import { LifeCyclesComponent } from './components/life-cycles/life-cycles.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, ContentComponent, PracticingComponent],
+  imports: [CommonModule, RouterOutlet, ContentComponent, PracticingComponent, LifeCyclesComponent],
   template: `
 
     <router-outlet></router-outlet>
   
 
-    <!-- NG CONTENT -->
+    <!-- 
+      NG CONTENT 
+    
+      É uma forma de passarmos HTML para um component.#header
+
+      <app-component>
+
+        <h5 title> esse é um titulo </h5>
+
+      </app-component>
+
+
+      app-component
+        podemos acessar através de um ALIAS ou CLASS e ID
+        <ng-content select="[title]"></ng-content>
+
+    -->
     <!-- <app-content>
 
       <header id="header">Esse é o meu cabeçalho</header>
@@ -29,7 +46,7 @@ import { PracticingComponent } from './components/practicing/practicing.componen
 
     </app-content> -->
 
-    <app-practicing>
+    <!-- <app-practicing>
       
       <h5 title>Esse é um texto de exemplo</h5> 
 
@@ -39,11 +56,50 @@ import { PracticingComponent } from './components/practicing/practicing.componen
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum, sapiente.
       </div>
 
-    </app-practicing>
+    </app-practicing> -->
 
-
+    <app-life-cycles [name]="nameChange" (resetName)="reset($event)" />
   `,
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
+
   title = 'life-cycles';
+
+  public nameChange: string = ""
+
+  // método executado depois que o component é construído e assim INICIALIZADO.
+  ngOnInit(): void {
+   
+    setInterval(()=>{
+
+      switch (this.nameChange) {
+        case "":
+          this.nameChange = "João"  
+          break;
+
+        case "João":
+          this.nameChange = "João Victor"  
+          break;
+
+        case "João Victor":
+          this.nameChange = "João Victor Silva"  
+          break;
+      
+        case "João Victor Silva":
+          this.nameChange = "João Victor Silva de Jesus"  
+          break;
+
+        default:
+          console.error('something went wrong!');
+          break;
+      }
+
+    }, 5000)
+  }
+
+  public reset(event: boolean){
+    if(event == true){  
+      this.nameChange = ""
+    }
+  }
 }
