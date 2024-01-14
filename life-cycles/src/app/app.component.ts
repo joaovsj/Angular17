@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 
@@ -62,19 +62,31 @@ import { OtherComponent } from './components/other/other.component';
     <!-- <app-life-cycles [name]="nameChange" (resetName)="reset($event)" /> -->
 
     @if(visible){
-      <app-other> 
+
+      <app-other [inputMyNumber]="number()"> 
         <p #text>Texto do content</p>
       </app-other>
+
     }
 
     <button (click)="visible = !visible">Change Property of Visibility</button>
 
   `,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
 
   title = 'life-cycles';
   visible: boolean = true;
+  number = signal<number>(0);
+
+  ngOnInit(): void {
+    setInterval(() => {
+      this.number.update((oldValue) => {
+        return oldValue + 1;
+      })
+    }, 1000)
+  }
 
   // public nameChange: string = ""
 

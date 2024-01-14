@@ -1,4 +1,4 @@
-import {  AfterContentChecked, AfterContentInit,  AfterViewChecked, AfterViewInit,  Component, ContentChild,  DoCheck,  ElementRef,  OnDestroy,  OnInit,  ViewChild,  signal } from '@angular/core';
+import {  AfterContentChecked, AfterContentInit,  AfterViewChecked, AfterViewInit,  ChangeDetectionStrategy,  Component, ContentChild,  DoCheck,  ElementRef,  Input,  OnDestroy,  OnInit,  ViewChild,  signal } from '@angular/core';
 
 
 // RXJS é uma biblioteca JS usada para controlar os estados e fluxo de dados na nossa aplicação.
@@ -10,7 +10,8 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
   standalone: true,
   imports: [],
   templateUrl: './other.component.html',
-  styleUrl: './other.component.scss'
+  styleUrl: './other.component.scss', 
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class OtherComponent implements 
   DoCheck, 
@@ -22,17 +23,24 @@ export class OtherComponent implements
   OnDestroy
 {
   
+  public myNumber = signal(0);
+  @Input() set inputMyNumber(value: number){
+    this.myNumber.set(value);
+  }
+
   @ViewChild('anyElement') public anyElement!: ElementRef
   @ContentChild('text') public text!: ElementRef 
 
-  private destroy$ = timer(0,1000).pipe(
-    takeUntilDestroyed()
-  )
-  .subscribe({
-    next: (next) => console.log('next: ', next),
-    error: (error)=> console.log('error: ', error),
-    complete: () => console.log('complete!')
-  });
+
+
+  // private destroy$ = timer(0,1000).pipe(
+  //   takeUntilDestroyed()
+  // )
+  // .subscribe({
+  //   next: (next) => console.log('next: ', next),
+  //   error: (error)=> console.log('error: ', error),
+  //   complete: () => console.log('complete!')
+  // });
 
   public name = signal<string>("Primeiro Texto")
 
@@ -65,7 +73,7 @@ export class OtherComponent implements
   ngAfterViewChecked(): void{
     // console.log('AfterViewChecked');
   }
-  
+
   // Executado quando o componente é destruído(um pouco antes) [destruído => para de ser exibido]
   ngOnDestroy(): void {
     console.log('OnDestroy');
