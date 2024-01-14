@@ -3,15 +3,16 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 
 // Components
-import { ContentComponent } from './components/content/content.component';
-import { PracticingComponent } from './components/practicing/practicing.component';
-import { LifeCyclesComponent } from './components/life-cycles/life-cycles.component';
-import { OtherComponent } from './components/other/other.component';
+import { ContentComponent }    from '@components/content/content.component';
+import { PracticingComponent } from '@components/practicing/practicing.component';
+import { LifeCyclesComponent } from '@components/life-cycles/life-cycles.component';
+import { OtherComponent }      from '@components/other/other.component';
+import { TestComponent }       from '@components/test/test.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, ContentComponent, PracticingComponent, LifeCyclesComponent, OtherComponent],
+  imports: [CommonModule, RouterOutlet, ContentComponent, PracticingComponent, LifeCyclesComponent, OtherComponent, TestComponent],
   template: `
 
     <router-outlet></router-outlet>
@@ -78,6 +79,7 @@ export class AppComponent implements OnInit{
 
   title = 'life-cycles';
   visible: boolean = true;
+
   number = signal<number>(0);
 
   ngOnInit(): void {
