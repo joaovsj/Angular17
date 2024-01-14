@@ -61,14 +61,20 @@ import { OtherComponent } from './components/other/other.component';
 
     <!-- <app-life-cycles [name]="nameChange" (resetName)="reset($event)" /> -->
 
-    <app-other> 
-      <p #text>Texto do content</p>
-    </app-other>
+    @if(visible){
+      <app-other> 
+        <p #text>Texto do content</p>
+      </app-other>
+    }
+
+    <button (click)="visible = !visible">Change Property of Visibility</button>
+
   `,
 })
 export class AppComponent {
 
   title = 'life-cycles';
+  visible: boolean = true;
 
   // public nameChange: string = ""
 
