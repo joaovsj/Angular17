@@ -4,6 +4,7 @@ import {  AfterContentChecked, AfterContentInit,  AfterViewChecked, AfterViewIni
 // RXJS é uma biblioteca JS usada para controlar os estados e fluxo de dados na nossa aplicação.
 import { timer } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
+import { environment } from 'environments/environment.development';
 
 @Component({
   selector: 'app-other',
@@ -26,12 +27,11 @@ export class OtherComponent implements
   public myNumber = signal(0);
   @Input() set inputMyNumber(value: number){
     this.myNumber.set(value);
-  }
+  } 
+
 
   @ViewChild('anyElement') public anyElement!: ElementRef
   @ContentChild('text') public text!: ElementRef 
-
-
 
   // private destroy$ = timer(0,1000).pipe(
   //   takeUntilDestroyed()
@@ -46,6 +46,9 @@ export class OtherComponent implements
 
   // Executado quando o componente é inicializado
   ngOnInit(): void{
+
+    console.log(environment.API);
+
     // console.log("OnInit", this.anyElement) // no INIT anyElement não existe, porque o TEMPLATE ainda não foi carregado por COMPLETO
   }
 
