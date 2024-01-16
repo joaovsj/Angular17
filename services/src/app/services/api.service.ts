@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject, signal } from '@angular/core';
+import { ITask } from 'app/interfaces/task';
 import { environment } from 'environments/environment'; // não colocar environment.alguma coisa
 import { BehaviorSubject, Observable } from 'rxjs';
 
@@ -16,9 +17,10 @@ export class ApiService {
   #http = inject(HttpClient)
   #url = signal(environment.API);
 
-  // public httpListTask$(): Observable <Array<{id: string, title: string}> >{
-  //   return  
-  // }
+  public httpListTask$(): Observable <ITask[]>{
+    
+    return this.#http.get<ITask[]>(this.#url());
+  }
 
   // https://us-central1-curso-de-angular-api.cloudfunctions.net/app/tasks
 }

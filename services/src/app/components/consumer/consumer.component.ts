@@ -1,7 +1,8 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, signal } from '@angular/core';
 
 import { NewComponentComponent } from '../new-component/new-component.component';
 import { ApiService } from '@services/api.service';
+import { ITask } from 'app/interfaces/task';
 
 @Component({
   selector: 'app-consumer',
@@ -13,8 +14,17 @@ import { ApiService } from '@services/api.service';
 export class ConsumerComponent implements OnInit{
 
   #apiService = inject(ApiService) // new way to work with injection into class
+  
+  public getTask = signal<null | ITask[]>(null)
+
 
   ngOnInit(){
-    
+    this.#apiService.httpListTask$().subscribe({
+      next: (next) => {
+        this.getTask.set(next)
+      },
+      error: (error) => console.log(error),
+      complete: () => console.log("Completed!"),
+    });
   }
 }

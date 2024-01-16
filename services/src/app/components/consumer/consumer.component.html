@@ -1,4 +1,16 @@
-<p>consumer works!</p>
+<p>Consumer works!</p>
+
+
+<ul>
+    @for(item of getTask(); track item){
+        
+        <li>{{ item.id }} - {{ item.title }}</li>
+    }@empty{
+        <li>Loading...</li>
+    }
+</ul>
+
+
 
 
 <app-new-component />
