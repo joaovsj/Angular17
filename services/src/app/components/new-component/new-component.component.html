@@ -1,1 +1,8 @@
 <p>new-component works!</p>
+
+
+<ul>
+    @for(item of getListTask(); track item){
+        <li> {{ item.id }} - {{ item.title }} </li>
+    }
+</ul>

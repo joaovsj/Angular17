@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { ConsumerComponent } from './components/consumer/consumer.component';
+import { NewComponentComponent } from './components/new-component/new-component.component';
 
 @Component({
   selector: 'app-root',
@@ -9,12 +10,14 @@ import { ConsumerComponent } from './components/consumer/consumer.component';
   imports: [
     CommonModule, 
     RouterOutlet, 
-    ConsumerComponent
+    ConsumerComponent,
+    NewComponentComponent
   ],
   template: `
 
     <router-outlet></router-outlet>
-    <app-consumer />
+    <!-- <app-consumer /> -->
+    <app-new-component />
   `,
 })
 export class AppComponent {

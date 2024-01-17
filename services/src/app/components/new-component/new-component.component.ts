@@ -1,31 +1,26 @@
-import { Component, OnInit, inject } from '@angular/core';
-
+import { CommonModule } from '@angular/common';
+import { Component, OnInit, inject, signal } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 import { ApiService } from '@services/api.service';
-// import { ApiService } from '@services/api.service';
+
 
 @Component({
   selector: 'app-new-component',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './new-component.component.html',
   styleUrl: './new-component.component.scss'
 })
 export class NewComponentComponent implements OnInit{
 
-  #apiService = inject(ApiService) // new way to work with injection into class
+  #apiService = inject(ApiService)
 
-  ngOnInit(){
+  public getListTask = this.#apiService.getListTask; // getListTask é uma propriedade apenas de leitura
+  // public getTask$ = toSignal(this.#apiService.httpListTask$());
 
-  //   console.log(this.#apiService.name());
-
-  //   this.#apiService.name$.subscribe({
-  //     next: (next)=> console.log(next),
-  //     error: (error)=> console.log(error),
-  //     complete: ()=> console.log('Complente'),
-  //   });
-  
-  //   this.#apiService.name$.next("João Victor $$");
-  //   this.#apiService.name.set("João Victor 2")
+  ngOnInit(): void{
+    this.#apiService.httpListTask$().subscribe()
   }
+
 }
