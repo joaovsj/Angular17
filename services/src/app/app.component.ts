@@ -11,12 +11,13 @@ import { NewComponentComponent } from './components/new-component/new-component.
     CommonModule, 
     RouterOutlet, 
     ConsumerComponent,
-    NewComponentComponent
+    NewComponentComponent,
   ],
   template: `
 
     <router-outlet></router-outlet>
     <!-- <app-consumer /> -->
+    
     <app-new-component />
   `,
 })

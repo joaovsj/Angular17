@@ -15,13 +15,13 @@ export class ApiService {
   #url = signal(environment.API);
 
 
-  #setListTask = signal<ITask[] | null>(null); // só criamos um SIGNAL
+  #setListTask = signal<any | null>(null); // só criamos um SIGNAL
 
   public getListTask = this.#setListTask.asReadonly(); // só posso usar getListTask apenas para leitura
 
 
   public httpListTask$(): Observable <ITask[]>{  
-    return this.#http.get<ITask[]>(this.#url()).pipe(
+    return this.#http.get<any>(this.#url()).pipe(
       shareReplay(),
       tap((res) => this.#setListTask.set(res)) // toda vez que um valor for retornado o getListTask é atualizado
     );

@@ -21,6 +21,8 @@ export class NewComponentComponent implements OnInit{
 
   ngOnInit(): void{
     this.#apiService.httpListTask$().subscribe()
+
+    console.log(this.getListTask());
   }
 
 }
