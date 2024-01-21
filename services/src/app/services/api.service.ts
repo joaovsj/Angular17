@@ -14,18 +14,45 @@ export class ApiService {
   #http = inject(HttpClient)
   #url = signal(environment.API);
 
-
-  #setListTask = signal<any | null>(null); // só criamos um SIGNAL
-
+  // GET ALL DATA
+  #setListTask = signal<ITask[] | null>(null); // só criamos um SIGNAL
   public getListTask = this.#setListTask.asReadonly(); // só posso usar getListTask apenas para leitura
 
-
   public httpListTask$(): Observable <ITask[]>{  
-    return this.#http.get<any>(this.#url()).pipe(
-      shareReplay(),
+    return this.#http.get<ITask[]>(this.#url()).pipe(
+      shareReplay(), // impede que tenhamos problema de mult cache na nossa aplicação
       tap((res) => this.#setListTask.set(res)) // toda vez que um valor for retornado o getListTask é atualizado
     );
+  } 
+
+  // GET BY ID
+  #setTaskId = signal<ITask | null>(null);
+  public get getTaskId(){
+    return this.#setTaskId.asReadonly(); // a variavel que recever o valor dessa função vai ser tornar um SIGNAL
   }
 
-  // https://us-central1-curso-de-angular-api.cloudfunctions.net/app/tasks
+  public httpTaskId$(id: string): Observable<ITask>{
+    return this.#http.get<ITask>(`${this.#url()}/${id}`)
+      .pipe( // permite fazermos algumas configaurações e tratamentos na requisição
+        shareReplay(),
+        tap((res)=> this.#setTaskId.set(res))
+      );
+  }
+
+
+  // CREATE
+  #setTaskCreate = signal<ITask | null>(null);
+  public get getTaskCreate(){
+    return this.#setTaskCreate.asReadonly();
+  }
+
+  public httpPostTask$(title: string): Observable<ITask>{
+    return this.#http.post<ITask>(this.#url(), { title })
+     .pipe(
+        shareReplay(),
+        tap((res)=> this.#setTaskCreate.set(res))
+     );
+  }
+
+
 }

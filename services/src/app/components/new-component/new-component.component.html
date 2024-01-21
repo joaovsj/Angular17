@@ -1,15 +1,26 @@
-<p>new-component works!</p>
-
+<h4>Get all Data</h4>
 
 <ul>
-    @for(item of getListTask(); track item){
-        <li> {{ item.id }} - {{ item.title }} </li>
+    @if(getListTask(); as data){
+        @for(item of data; track item){
+            <li> {{ item.id }} - {{ item.title }} </li>
+        
+        } @empty {
+            <li>A lista está vazia</li>
+        }
+    } @else {
+        <li>Loading...</li>
     }
-
-
-    <!-- @for(item of getListTask(); track item){
-        <li> {{ item | json }}  </li>
-    } -->
-
-
 </ul>
+
+
+<h4>Get by ID</h4>
+
+@if(getTaskId(); as data){
+    <p>{{ data.id }} - {{ data.title }} </p>
+}
+
+<h4> Create Task</h4>
+
+<input type="text" #titleTask>
+<button (click)="httpPostTask(titleTask.value)">Add Item</button>
