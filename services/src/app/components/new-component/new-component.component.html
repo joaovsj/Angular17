@@ -2,6 +2,12 @@
 
 <ul>
     @if(getListTask(); as data){
+
+        @if(getTaskErrorDelete()){
+            {{ getTaskErrorDelete() }}
+        }
+
+
         @for(item of data; track item){
             <li> {{ item.id }} - {{ item.title }} <button (click)="httpTaskDelete(item.id)">Delete</button></li>
         
@@ -21,6 +27,8 @@
 
 @if(getTaskId(); as data){
     <p>{{ data.id }} - {{ data.title }} </p>
+}@else {
+    {{ getTaskIdError() }}
 }
 
 <h4> Create Task</h4>
@@ -33,3 +41,7 @@
 <input type="text" #taskId placeholder="id">
 <input type="text" #taskUpdate placeholder="title">
 <button (click)="httpPutTask(taskId.value, taskUpdate.value)">Update Item</button>
+
+@if(getTaskErrorUpdate()){
+    {{ getTaskErrorUpdate() }}
+}

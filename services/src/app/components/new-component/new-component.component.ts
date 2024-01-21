@@ -19,6 +19,10 @@ export class NewComponentComponent implements OnInit{
 
   public getListTask = this.#apiService.getTaskList; // getListTask é uma propriedade apenas de leitura
   public getTaskId = this.#apiService.getTaskId;
+  public setTaskListError = this.#apiService.getTaskListError;
+  public getTaskIdError = this.#apiService.getTaskIdError;
+  public getTaskErrorDelete = this.#apiService.getTaskErrorDelete;
+  public getTaskErrorUpdate = this.#apiService.getTaskErrorUpdate;
 
   ngOnInit(): void{
     this.#apiService.httpTaskList$().subscribe();
