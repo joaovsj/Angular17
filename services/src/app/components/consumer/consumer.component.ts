@@ -19,7 +19,7 @@ export class ConsumerComponent implements OnInit{
   
   public getTask = signal<null | ITask[]>(null)
 
-  public getTask$ = this.#apiService.httpListTask$().pipe(
+  public getTask$ = this.#apiService.httpTaskList$().pipe(
     shareReplay()
   )
 

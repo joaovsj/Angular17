@@ -15,13 +15,15 @@ export class ApiService {
   #url = signal(environment.API);
 
   // GET ALL DATA
-  #setListTask = signal<ITask[] | null>(null); // só criamos um SIGNAL
-  public getListTask = this.#setListTask.asReadonly(); // só posso usar getListTask apenas para leitura
+  #setTaskList = signal<ITask[] | null>(null); // só criamos um SIGNAL
+  public get getTaskList(){ // só posso usar getListTask apenas para leitura
+    return this.#setTaskList.asReadonly();
+  }
 
-  public httpListTask$(): Observable <ITask[]>{  
+  public httpTaskList$(): Observable <ITask[]>{  
     return this.#http.get<ITask[]>(this.#url()).pipe(
       shareReplay(), // impede que tenhamos problema de mult cache na nossa aplicação
-      tap((res) => this.#setListTask.set(res)) // toda vez que um valor for retornado o getListTask é atualizado
+      tap((res) => this.#setTaskList.set(res)) // toda vez que um valor for retornado o getListTask é atualizado
     );
   } 
 
@@ -39,20 +41,27 @@ export class ApiService {
       );
   }
 
-
-  // CREATE
-  #setTaskCreate = signal<ITask | null>(null);
-  public get getTaskCreate(){
-    return this.#setTaskCreate.asReadonly();
-  }
-
+  // CREATE 
   public httpPostTask$(title: string): Observable<ITask>{
     return this.#http.post<ITask>(this.#url(), { title })
      .pipe(
-        shareReplay(),
-        tap((res)=> this.#setTaskCreate.set(res))
+        shareReplay()
      );
   }
 
+  // UPDATE 
+  public httpTaskUpdate$(id: string, title: string): Observable<ITask>{
+    return this.#http.patch<ITask>(`${this.#url()}/${id}`, { title })
+      .pipe(
+        shareReplay()
+      );
+  }
 
+  // DELETE
+  public httpTaskDelete$(id: string): Observable<void>{
+    return this.#http.delete<void>(`${this.#url()}/${id}`)
+      .pipe( 
+        shareReplay() 
+      );
+  }
 }

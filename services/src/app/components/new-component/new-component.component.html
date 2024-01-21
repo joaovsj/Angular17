@@ -3,7 +3,7 @@
 <ul>
     @if(getListTask(); as data){
         @for(item of data; track item){
-            <li> {{ item.id }} - {{ item.title }} </li>
+            <li> {{ item.id }} - {{ item.title }} <button (click)="httpTaskDelete(item.id)">Delete</button></li>
         
         } @empty {
             <li>A lista está vazia</li>
@@ -22,5 +22,11 @@
 
 <h4> Create Task</h4>
 
-<input type="text" #titleTask>
+<input type="text" #titleTask placeholder="title">
 <button (click)="httpPostTask(titleTask.value)">Add Item</button>
+
+
+<h4> Update Task</h4>
+<input type="text" #taskId placeholder="id">
+<input type="text" #taskUpdate placeholder="title">
+<button (click)="httpPutTask(taskId.value, taskUpdate.value)">Update Item</button>
