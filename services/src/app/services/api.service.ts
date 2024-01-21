@@ -21,6 +21,9 @@ export class ApiService {
   }
 
   public httpTaskList$(): Observable <ITask[]>{  
+
+    this.#setTaskList.set(null) // permite trabalharmos com LOADING...
+
     return this.#http.get<ITask[]>(this.#url()).pipe(
       shareReplay(), // impede que tenhamos problema de mult cache na nossa aplicação
       tap((res) => this.#setTaskList.set(res)) // toda vez que um valor for retornado o getListTask é atualizado
@@ -34,6 +37,9 @@ export class ApiService {
   }
 
   public httpTaskId$(id: string): Observable<ITask>{
+
+    this.#setTaskId.set(null) // reseta nossa lista
+
     return this.#http.get<ITask>(`${this.#url()}/${id}`)
       .pipe( // permite fazermos algumas configaurações e tratamentos na requisição
         shareReplay(),

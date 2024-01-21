@@ -16,6 +16,9 @@
 
 <h4>Get by ID</h4>
 
+<input type="text" #idTask placeholder="id">
+<button (click)="getById(idTask.value)">Search</button>
+
 @if(getTaskId(); as data){
     <p>{{ data.id }} - {{ data.title }} </p>
 }

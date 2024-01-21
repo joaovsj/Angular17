@@ -22,7 +22,10 @@ export class NewComponentComponent implements OnInit{
 
   ngOnInit(): void{
     this.#apiService.httpTaskList$().subscribe();
-    this.#apiService.httpTaskId$("0").subscribe();
+  }
+
+  public getById(id: string){
+    return this.#apiService.httpTaskId$(id).subscribe()
   }
 
   public httpPostTask(title: string){
