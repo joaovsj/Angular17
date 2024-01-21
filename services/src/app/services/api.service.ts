@@ -16,7 +16,7 @@ export class ApiService {
 
   // GET ALL DATA
   #setTaskList = signal<ITask[] | null>(null); // só criamos um SIGNAL
-  public get getTaskList(){ // só posso usar getListTask apenas para leitura
+  public get getTaskList(){ // só posso usar getListTask ape  nas para leitura
     return this.#setTaskList.asReadonly();
   }
 
