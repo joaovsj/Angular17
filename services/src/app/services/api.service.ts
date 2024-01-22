@@ -1,4 +1,4 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable, inject, signal } from '@angular/core';
 import { ITask } from 'app/interfaces/task';
 import { environment } from 'environments/environment'; // não colocar environment.alguma coisa
@@ -20,7 +20,6 @@ export class ApiService {
     return this.#setTaskList.asReadonly();
   }
 
-
   // Erros
   #setTaskListError = signal<any>(null)
   public get getTaskListError(){
@@ -28,10 +27,23 @@ export class ApiService {
   }
 
   public httpTaskList$(): Observable <ITask[]>{  
+
+    // Dessa forma que usamos HEADERS
+    const headers = new HttpHeaders()
+      .set('firstName', "Joao")
+      .set('lastName', "Victor Silva de Jesus");
+
+    // Dessa forma que trabalhamos com Parametros na URL
+    const params = new HttpParams()
+      .set('page', '1')
+      .set('brand', 'Ford')
+
+
     this.#setTaskList.set(null) // permite trabalharmos com LOADING...
     this.#setTaskListError.set(null)
 
-    return this.#http.get<ITask[]>(this.#url()).pipe(
+    return this.#http.get<ITask[]>(this.#url(), { headers: headers, params: params }).pipe(
+
       shareReplay(), // impede que tenhamos problema de mult cache na nossa aplicação
       tap((res) => this.#setTaskList.set(res)), // toda vez que um valor for retornado o getListTask é atualizado
       catchError((error: HttpErrorResponse)=>{
