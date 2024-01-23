@@ -39,12 +39,17 @@ export class ApiService {
       .set('brand', 'Ford')
 
 
+
+
     this.#setTaskList.set(null) // permite trabalharmos com LOADING...
     this.#setTaskListError.set(null)
 
-    return this.#http.get<ITask[]>(this.#url(), { headers: headers, params: params }).pipe(
+    return this.#http.get<ITask[]>(this.#url(), 
+      { 
+        // headers: headers, params: params 
+      }).pipe(
 
-      shareReplay(), // impede que tenhamos problema de mult cache na nossa aplicação
+      // shareReplay(), // impede que tenhamos problema de mult cache na nossa aplicação
       tap((res) => this.#setTaskList.set(res)), // toda vez que um valor for retornado o getListTask é atualizado
       catchError((error: HttpErrorResponse)=>{
 
@@ -72,7 +77,7 @@ export class ApiService {
 
     return this.#http.get<ITask>(`${this.#url()}/${id}`)
       .pipe( // permite fazermos algumas configaurações e tratamentos na requisição
-        shareReplay(),
+        // shareReplay(),
         tap((res)=> this.#setTaskId.set(res)),
         catchError((error: HttpErrorResponse)=>{
 
@@ -86,7 +91,7 @@ export class ApiService {
   public httpPostTask$(title: string): Observable<ITask>{
     return this.#http.post<ITask>(this.#url(), { title })
      .pipe(
-        shareReplay()
+        // shareReplay()
      );
   }
 
@@ -103,7 +108,7 @@ export class ApiService {
 
     return this.#http.patch<ITask>(`${this.#url()}/${id}`, { title })
       .pipe(
-        shareReplay(),
+        // shareReplay(),
         catchError((error: HttpErrorResponse)=>{
           this.#setTaskErrorUpdate.set(error.error)
           return throwError(() => error.error)
@@ -122,7 +127,7 @@ export class ApiService {
 
     return this.#http.delete<void>(`${this.#url()}/${id}`)
       .pipe( 
-        shareReplay(),
+        // shareReplay(),
         catchError((error: HttpErrorResponse)=>{
 
           this.#setTaskErrorDelete.set(error.error)
