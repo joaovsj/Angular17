@@ -1,1 +1,25 @@
-<p>jobs works!</p>
+<h1>Nossos Serviços</h1>
+
+
+<header>
+    <a [routerLink]="['']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+
+    <a [routerLink]="['/sobre']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Sobre</a>
+
+
+    <div>
+        <p> Nossos Serviços > </p>
+        <a 
+            [routerLink]="['/nossos-servicos', 'vendas']" 
+            routerLinkActive="active" 
+            [routerLinkActiveOptions]="{exact: true}">Vendas</a> <br>
+        <a  
+            [routerLink]="['/nossos-servicos', 'contratos']"
+            routerLinkActive="active" 
+            [routerLinkActiveOptions]="{exact: true}">Contratos</a>
+
+    </div>
+
+</header>
+
+    

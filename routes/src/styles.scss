@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+header{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    a{
+        width: min-content;
+        text-wrap: nowrap;
+    }
+}
+
+.active{
+    background-color: red;
+    color: #FFF;
+}

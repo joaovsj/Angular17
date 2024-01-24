@@ -17,7 +17,7 @@ export const routes: Routes = [
         component: AboutComponent
     },
     {
-        path: 'nossos-servicos',
+        path: 'nossos-servicos/:subject',
         title: 'Serviços - Angular 17',
         component: JobsComponent
     }
