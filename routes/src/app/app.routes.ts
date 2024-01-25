@@ -8,19 +8,17 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 export const routes: Routes = [
     {
-        path: '', 
-        title: 'Início - Angular 17', // referente ao título da pagina
-        component: HomeComponent
-    },
-    {
-        path: 'sobre',
-        title: 'Sobre nós - Angular 17',
-        component: AboutComponent
-    },
-    {
-        path: 'nossos-servicos/:subject',
-        title: 'Serviços - Angular 17',
-        component: JobsComponent
+        path: '',
+        children: [ // podemos trabalhar com rotas filhas através de um índice chamado CHILDREN
+            {
+                path: 'sobre', 
+                component: AboutComponent
+            },
+            {
+                path: 'servicos',
+                component: JobsComponent
+            }
+        ]
     },
     {
         path: '**',
