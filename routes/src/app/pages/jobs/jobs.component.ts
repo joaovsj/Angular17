@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, Input, OnInit, inject, signal } from '@angular/core';
 import { ActivatedRoute, RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
@@ -10,10 +10,19 @@ import { ActivatedRoute, RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './jobs.component.scss'
 })
 export class JobsComponent implements OnInit{
+  #url = inject(ActivatedRoute) 
 
-  #url = inject(ActivatedRoute);
-    
-  ngOnInit(){
-    console.log(this.#url.snapshot.params['subject']);
+
+  public getSubject = signal<string | null>(null);
+  @Input() set subject(id: string){
+    this.getSubject.set(id)
   }
+
+  ngOnInit(): void{
+    console.log(this.#url.snapshot.params['subject']);
+
+    this.#url.params.subscribe((res) => console.log(res['subject']))
+
+  }
+
 } 

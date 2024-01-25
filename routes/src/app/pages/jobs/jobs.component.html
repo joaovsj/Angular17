@@ -10,16 +10,18 @@
     <div>
         <p> Nossos Serviços > </p>
         <a 
-            [routerLink]="['/nossos-servicos', 'vendas']" 
+            [routerLink]="['/nossos-servicos', 123]" 
             routerLinkActive="active" 
             [routerLinkActiveOptions]="{exact: true}">Vendas</a> <br>
         <a  
-            [routerLink]="['/nossos-servicos', 'contratos']"
+            [routerLink]="['/nossos-servicos', 456]"
             routerLinkActive="active" 
             [routerLinkActiveOptions]="{exact: true}">Contratos</a>
 
     </div>
-
 </header>
+
+
+{{ getSubject() }}
 
     

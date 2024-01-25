@@ -1,0 +1,21 @@
+:host{
+    div{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        h3{
+            font-size: calc(2vmin + 20px);
+        }
+
+        p{
+            transform: translateY(-70%);
+            font-size: calc(2vmin + 8px);
+        }
+    }
+}
