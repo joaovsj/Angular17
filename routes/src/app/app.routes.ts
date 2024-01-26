@@ -1,28 +1,28 @@
 import { Routes } from '@angular/router';
 
 // COMPONENTS
-import { HomeComponent } from './pages/home/home.component';
-import { AboutComponent } from './pages/about/about.component';
-import { JobsComponent } from './pages/jobs/jobs.component';
-import { NotFoundComponent } from './pages/not-found/not-found.component';
-
 export const routes: Routes = [
     {
         path: '',
         children: [ // podemos trabalhar com rotas filhas através de um índice chamado CHILDREN
             {
-                path: 'sobre', 
-                component: AboutComponent
+                path: '', 
+                loadComponent: () => import('./pages/home/home.component').then((p) => p.HomeComponent)
             },
             {
-                path: 'servicos',
-                component: JobsComponent
+                path: 'sobre', 
+                loadComponent: () => import('./pages/about/about.component').then((p)=> p.AboutComponent)
+            },
+            {
+                path: 'servicos/:subject',
+                loadComponent: () => import('./pages/jobs/jobs.component').then((p) => p.JobsComponent)
             }
         ]
     },
     {
         path: '**',
         title: 'Not Found',
-        component: NotFoundComponent
+        // se na declaração do component estiver DEFAULT não precisamos colocar o .THEN
+        loadComponent: () => import('./pages/not-found/not-found.component'), 
     }
 ];
