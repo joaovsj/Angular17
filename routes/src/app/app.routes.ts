@@ -3,21 +3,23 @@ import { Routes } from '@angular/router';
 // COMPONENTS
 export const routes: Routes = [
     {
-        path: '',
-        children: [ // podemos trabalhar com rotas filhas através de um índice chamado CHILDREN
-            {
-                path: '', 
-                loadComponent: () => import('./pages/home/home.component').then((p) => p.HomeComponent)
-            },
-            {
-                path: 'sobre', 
-                loadComponent: () => import('./pages/about/about.component').then((p)=> p.AboutComponent)
-            },
-            {
-                path: 'servicos/:subject',
-                loadComponent: () => import('./pages/jobs/jobs.component').then((p) => p.JobsComponent)
-            }
-        ]
+        path: 'curso',
+        loadChildren: () => import('./pages/curso.routes').then((rout) => rout.pageRoutes)
+        // path: '',
+        // children: [ // podemos trabalhar com rotas filhas através de um índice chamado CHILDREN
+        //     {
+        //         path: '', 
+        //         loadComponent: () => import('./pages/home/home.component').then((p) => p.HomeComponent)
+        //     },
+        //     {
+        //         path: 'sobre', 
+        //         loadComponent: () => import('./pages/about/about.component').then((p)=> p.AboutComponent)
+        //     },
+        //     {
+        //         path: 'servicos/:subject',
+        //         loadComponent: () => import('./pages/jobs/jobs.component').then((p) => p.JobsComponent)
+        //     }
+        // ]
     },
     {
         path: '**',
