@@ -23,6 +23,11 @@ export class JobsComponent implements OnInit{
 
     this.#url.params.subscribe((res) => console.log(res['subject']))
 
+    // // URL é uma instancia da classe ActivatedRoute(Ativade da rota)
+    // console.log(this.#url.snapshot.queryParamMap.get('name'))
+    // console.log(this.#url.snapshot.queryParamMap.get('age'))
+    // console.log(this.#url.snapshot.queryParamMap.get('profession'))
+
   }
 
 } 

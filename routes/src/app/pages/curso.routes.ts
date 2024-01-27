@@ -14,5 +14,4 @@ export const pageRoutes: Routes = [
         path: 'servicos/:subject',
         loadComponent: () => import('./jobs/jobs.component').then((p) => p.JobsComponent)
     } 
-
 ];

@@ -9,12 +9,13 @@
         <p> Nossos Serviços > </p>
         <a 
             [routerLink]="['servicos', 'vendas']" 
-            routerLinkActive="active" 
+            routerLinkActive="active",
             [routerLinkActiveOptions]="{exact: true}">Vendas</a> <br>
         <a  
             [routerLink]="['servicos', 'contratos']"
-            routerLinkActive="active" 
+            routerLinkActive="active" ,
             [routerLinkActiveOptions]="{exact: true}">Contratos</a>
     </div>
+    <!-- <!-- [queryParams]="{name: 'joao', age: 18, profession: 'DEV | Full Stack'}"  --> -->
 </header>
 
