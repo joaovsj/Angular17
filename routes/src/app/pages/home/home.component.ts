@@ -11,6 +11,7 @@ import { ActivatedRoute, RouterLink, RouterLinkActive } from '@angular/router';
 })
 export class HomeComponent implements OnInit{
 
+  // OLD WAY
   constructor(
     private route: ActivatedRoute
   ){}

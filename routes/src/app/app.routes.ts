@@ -1,10 +1,19 @@
 import { Routes } from '@angular/router';
 
+// GUARDS
+import { canActiveChildGuard } from './guard/can-active-child.guard';
+import { canActiveMatchGuard } from './guard/can-active-match.guard';
+
 // COMPONENTS
 export const routes: Routes = [
     {
         path: 'curso',
-        loadChildren: () => import('./pages/curso.routes').then((rout) => rout.pageRoutes)
+        loadChildren: () => import('./pages/curso.routes').then((rout) => rout.pageRoutes),
+        // canActivateChild: [canActiveChildGuard] // protege a rota de form global
+
+        canMatch: [canActiveMatchGuard]
+
+
         // path: '',
         // children: [ // podemos trabalhar com rotas filhas através de um índice chamado CHILDREN
         //     {
