@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit, inject, signal } from '@angular/core';
-import { ActivatedRoute, RouterLink, RouterLinkActive } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-jobs',
@@ -10,8 +10,9 @@ import { ActivatedRoute, RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './jobs.component.scss'
 })
 export class JobsComponent implements OnInit{
-  #url = inject(ActivatedRoute) 
-
+  
+  #router =  inject(Router)
+  #url    =  inject(ActivatedRoute) 
 
   public getSubject = signal<string | null>(null);
   @Input() set subject(id: string){
@@ -33,6 +34,10 @@ export class JobsComponent implements OnInit{
     // console.log(this.#url.snapshot.queryParamMap.get('age'))
     // console.log(this.#url.snapshot.queryParamMap.get('profession'))
 
+
+    setTimeout(() => {
+      this.#router.navigate(['/curso'])
+    }, 3000)
   }
 
 } 
