@@ -1,1 +1,18 @@
 <h2>Otimização de imagens</h2>
+
+<!-- Quando trabalhamos com "provideImgixLoader(caminho da imagem)" nós podemos colocar apenas o nome dela -->
+<img ngSrc="medio.jpg" ngSrcset="100w, 200w, 300w" width="400" height="250" alt="Some photo" loading="lazy">
+
+
+<div style="
+    position: relative;
+    width: 350px;
+    height: 400px;
+    background-color: pink;
+">
+    <img 
+        ngSrc="medio.jpg" ngSrcset="100w, 200w, 300w"
+        alt="Some photo" 
+        fill priority 
+        style="object-fit: cover;">
+</div>

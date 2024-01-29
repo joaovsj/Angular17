@@ -10,7 +10,6 @@ export const routes: Routes = [
         path: 'curso',
         loadChildren: () => import('./pages/curso.routes').then((rout) => rout.pageRoutes),
         // canActivateChild: [canActiveChildGuard] // protege a rota de form global
-
         canMatch: [canActiveMatchGuard]
 
 
