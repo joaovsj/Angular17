@@ -1,4 +1,4 @@
-import { state, style, trigger } from '@angular/animations';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 import { CommonModule } from '@angular/common';
 import { Component, signal } from '@angular/core';
 
@@ -15,7 +15,11 @@ import { Component, signal } from '@angular/core';
       })),  
       state('move-right', style({
         transform: 'scale(0.7) translateX(300px) rotate(360deg)'
-      }))
+      })),
+
+      // de para BIDIMENSIONAL [animate(duração, delay, tipo)]
+      transition('* <=> move-right', animate('1s 2s ease')),
+      transition('* => move-left', animate('1s 2s ease'))
     ])
   ]
 })
