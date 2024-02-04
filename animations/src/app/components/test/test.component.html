@@ -1,16 +1,16 @@
 
 
 
-<div class="modal" [@modal]="visible">
+<div class="modal" [@modal]="visible()">
     <div>
         <i class="bi bi-exclamation-triangle"></i>
         <h3> Atenção!</h3>   
     </div>
     <p>Tem certeza que quer excluir esse registro? Essa ação não pode ser <strong>desfeita.</strong></p>
     <div>
-        <button (click)="visible = 'hide'">Cancelar</button>
+        <button (click)="visible.set('hide')">Cancelar</button>
         <button>Deletar</button>
     </div>
 </div>
 
-<button (click)="visible = 'show'" class="last-button">Show modal</button>
+<button (click)="visible.set('show')" class="last-button">Show modal</button>
