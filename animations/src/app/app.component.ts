@@ -16,8 +16,7 @@ import { TestComponent } from './components/test/test.component';
       <!-- <h1>Angular 17</h1> -->
 
 
-      <!-- <app-animations /> -->
-
+      <app-animations />
       <app-test />
   `
 })

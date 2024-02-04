@@ -19,7 +19,7 @@ import { Component, signal } from '@angular/core';
 
       // de para BIDIMENSIONAL [animate(duração, delay, tipo)]
       transition('* <=> move-right', animate('1s 2s ease')),
-      transition('* => move-left', animate('1s 2s ease'))
+      transition('* => move-left', animate('1s 2s ease')) // mostrar para exemplificar
     ])
   ]
 })
