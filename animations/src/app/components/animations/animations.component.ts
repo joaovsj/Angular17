@@ -1,4 +1,4 @@
-import { animate, keyframes, query, stagger, state, style, transition, trigger } from '@angular/animations';
+import { animate, group, keyframes, query, sequence, stagger, state, style, transition, trigger } from '@angular/animations';
 import { CommonModule } from '@angular/common';
 import { Component, signal } from '@angular/core';
 
@@ -53,16 +53,30 @@ import { Component, signal } from '@angular/core';
       ]),
       transition('* => *', [
         query(':leave', [
-            // style({
-            //   opacity: 1
-            // }),
-          style({
-            transform: 'translateX(-50px)'
-          }),
-          animate('.8s', style({ 
-            transform: 'translateX(10px)',
-            opacity: 0 
-          }))
+
+          sequence([
+            animate('.2s', style({
+              transform: 'translateX(-50px)'
+            })),
+            animate('.2s', style({
+              opacity: 0,
+              transform: 'translateX(100px)'
+            })),
+            // animate('3s', style({
+            //   background: 'green'
+            // }))
+          ])
+
+          // style({
+          //   opacity: 1
+          // }),
+          // style({
+          //   transform: 'translateX(-50px)'
+          // }),
+          // animate('.8s', style({ 
+          //   transform: 'translateX(10px)',
+          //   opacity: 0 
+          // }))
         ])
       ])
     ])
