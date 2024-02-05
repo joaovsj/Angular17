@@ -2,6 +2,10 @@ import { animate, group, keyframes, query, sequence, stagger, state, style, tran
 import { CommonModule } from '@angular/common';
 import { Component, signal } from '@angular/core';
 
+
+// ANIMAÇÃO QUE NÓS CRIAMOS
+import { listItemsAnimation } from '../../animations/list-items.animation';
+
 @Component({
   selector: 'app-animations',
   standalone: true,
@@ -38,48 +42,53 @@ import { Component, signal } from '@angular/core';
       transition(':leave', animate('1s ease'))
       // transition('* <=> move-right', animate('1s 2s ease')),
       // transition('* => move-left', animate('1s 2s ease')) // mostrar para exemplificar
-    ]), 
-    trigger('list-items', [
-      transition(':enter', [
-        query('li', [
-          style({
-            backgroundColor: 'yellow',
-            transform: 'translateY(100px)',
-            opacity: 0.1
-          }),
-          // primeiro valor é referente ao tempo entre as animações(tempo que ele espera para realizar a proxima animação)
-          stagger('100ms', [ animate('.7s') ]) // segundo valor é referente ao tempo de cada animação
-        ])
-      ]),
-      transition('* => *', [
-        query(':leave', [
+    ]),
+    
+    listItemsAnimation
+    
+    // trigger('list-items', [
+    //   transition(':enter', [
+    //     query('li', [
+    //       style({
+    //         backgroundColor: 'yellow',
+    //         transform: 'translateY(100px)',
+    //         opacity: 0.1
+    //       }),
+    //       // primeiro valor é referente ao tempo entre as animações(tempo que ele espera para realizar a proxima animação)
+    //       stagger('100ms', [ animate('.7s') ]) // segundo valor é referente ao tempo de cada animação
+    //     ])
+    //   ]),
+    //   transition('* => *', [
+    //     query(':leave', [
 
-          sequence([
-            animate('.2s', style({
-              transform: 'translateX(-50px)'
-            })),
-            animate('.2s', style({
-              opacity: 0,
-              transform: 'translateX(100px)'
-            })),
-            // animate('3s', style({
-            //   background: 'green'
-            // }))
-          ])
 
-          // style({
-          //   opacity: 1
-          // }),
-          // style({
-          //   transform: 'translateX(-50px)'
-          // }),
-          // animate('.8s', style({ 
-          //   transform: 'translateX(10px)',
-          //   opacity: 0 
-          // }))
-        ])
-      ])
-    ])
+    //       // EXCECUTA AS ANIMAÇÔES EM SEQUENCIA
+    //       sequence([
+    //         animate('.2s', style({
+    //           transform: 'translateX(-50px)'
+    //         })),
+    //         animate('.2s', style({
+    //           opacity: 0,
+    //           transform: 'translateX(100px)'
+    //         })),
+    //         // animate('3s', style({
+    //         //   background: 'green'
+    //         // }))
+    //       ])
+
+    //       // style({
+    //       //   opacity: 1
+    //       // }),
+    //       // style({
+    //       //   transform: 'translateX(-50px)'
+    //       // }),
+    //       // animate('.8s', style({ 
+    //       //   transform: 'translateX(10px)',
+    //       //   opacity: 0 
+    //       // }))
+    //     ])
+    //   ])
+    // ])
   ]
 })
 export class AnimationsComponent {
