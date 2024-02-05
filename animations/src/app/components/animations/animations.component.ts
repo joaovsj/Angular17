@@ -50,6 +50,20 @@ import { Component, signal } from '@angular/core';
           // primeiro valor é referente ao tempo entre as animações(tempo que ele espera para realizar a proxima animação)
           stagger('100ms', [ animate('.7s') ]) // segundo valor é referente ao tempo de cada animação
         ])
+      ]),
+      transition('* => *', [
+        query(':leave', [
+            // style({
+            //   opacity: 1
+            // }),
+          style({
+            transform: 'translateX(-50px)'
+          }),
+          animate('.8s', style({ 
+            transform: 'translateX(10px)',
+            opacity: 0 
+          }))
+        ])
       ])
     ])
   ]
@@ -57,5 +71,18 @@ import { Component, signal } from '@angular/core';
 export class AnimationsComponent {
 
   public moveIn = signal('')
+
+  public listItems = signal([
+    {name: 'item 1'},
+    {name: 'item 2'},
+    {name: 'item 3'},
+    {name: 'item 4'},
+    {name: 'item 5'}
+  ])
+
+
+  public deleteItem(index: number){
+    this.listItems().splice(index, 1)
+  }
 
 }

@@ -19,11 +19,17 @@ move in: {{ moveIn() }}
 
 <hr>
 
-<ul [@list-items]>
-    <li>Item 1</li>
+<!-- Se eu colocar a animação dessa forma, podemos mapear as alteraçoes que são feitas em indice por indice -->
+<ul [@list-items]="listItems().length">
+
+    @for(item of listItems(); track item; let i = $index){
+        <li> {{ item.name }}  <button (click)="deleteItem(i)">Delete</button> </li>
+    }
+    
+    <!-- <li>Item 1</li>
     <li>Item 2</li>
     <li>Item 3</li>
     <li>Item 4</li>
-    <li>Item 5</li>
+    <li>Item 5</li> -->
 </ul>
 
