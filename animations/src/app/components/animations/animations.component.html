@@ -1,9 +1,29 @@
 <h2>Animations</h2>
 
-<div class="ball" [@move-ball]="moveIn()"></div>
+
+<!-- IF = construi e destroi elementos dentro do nosso template -->
+@if(moveIn() === 'move-right'){
+    <div class="ball" [@move-ball]="moveIn()"></div>
+}
+
+
 
 <button (click)="moveIn.set('move-left')">Move left</button>
 <button (click)="moveIn.set('move-right')">Move Right</button>
 
 
-{{ moveIn() }}
+<hr>
+
+
+move in: {{ moveIn() }}
+
+<hr>
+
+<ul [@list-items]>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+    <li>Item 4</li>
+    <li>Item 5</li>
+</ul>
+

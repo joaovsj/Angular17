@@ -5,6 +5,9 @@
         border-radius: 100px;
         background-color: purple;
         position: relative; // muito importante
+
+
+        opacity: 0; // quando vamos trabalhar com animate(leave/enter) ela não tem estado(tem que colocar o estilo direto no CSS)
         
         &::after{
             content: '';

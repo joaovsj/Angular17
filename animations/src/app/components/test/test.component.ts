@@ -16,7 +16,7 @@ import { Component, OnInit, signal } from '@angular/core';
       })),
       state('hide', style({
         opacity: 0,
-        transform: 'translateY(50px)',
+        transform: 'translateY(20px)',
         pointerEvents: 'none'
       })),
       transition('* <=> show', animate('.2s ease'))
