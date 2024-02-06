@@ -12,12 +12,12 @@ import { TestComponent } from './components/test/test.component';
   imports: [CommonModule, RouterOutlet, AnimationsComponent, TestComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-  
+
       <!-- <h1>Angular 17</h1> -->
-
-
+      <router-outlet></router-outlet>
+<!-- 
       <app-animations />
-      <app-test />
+      <app-test /> -->
   `
 })
 export class AppComponent {

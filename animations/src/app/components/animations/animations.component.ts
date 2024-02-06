@@ -5,11 +5,12 @@ import { Component, signal } from '@angular/core';
 
 // ANIMAÇÃO QUE NÓS CRIAMOS
 import { listItemsAnimation } from '../../animations/list-items.animation';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-animations',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './animations.component.html',
   styleUrl: './animations.component.scss',
   animations: [
@@ -46,49 +47,6 @@ import { listItemsAnimation } from '../../animations/list-items.animation';
     
     listItemsAnimation()
     
-    // trigger('list-items', [
-    //   transition(':enter', [
-    //     query('li', [
-    //       style({
-    //         backgroundColor: 'yellow',
-    //         transform: 'translateY(100px)',
-    //         opacity: 0.1
-    //       }),
-    //       // primeiro valor é referente ao tempo entre as animações(tempo que ele espera para realizar a proxima animação)
-    //       stagger('100ms', [ animate('.7s') ]) // segundo valor é referente ao tempo de cada animação
-    //     ])
-    //   ]),
-    //   transition('* => *', [
-    //     query(':leave', [
-
-
-    //       // EXCECUTA AS ANIMAÇÔES EM SEQUENCIA
-    //       sequence([
-    //         animate('.2s', style({
-    //           transform: 'translateX(-50px)'
-    //         })),
-    //         animate('.2s', style({
-    //           opacity: 0,
-    //           transform: 'translateX(100px)'
-    //         })),
-    //         // animate('3s', style({
-    //         //   background: 'green'
-    //         // }))
-    //       ])
-
-    //       // style({
-    //       //   opacity: 1
-    //       // }),
-    //       // style({
-    //       //   transform: 'translateX(-50px)'
-    //       // }),
-    //       // animate('.8s', style({ 
-    //       //   transform: 'translateX(10px)',
-    //       //   opacity: 0 
-    //       // }))
-    //     ])
-    //   ])
-    // ])
   ]
 })
 export class AnimationsComponent {
@@ -106,6 +64,11 @@ export class AnimationsComponent {
 
   public deleteItem(index: number){
     this.listItems().splice(index, 1)
+  }
+
+
+  public addNewItem(title: string){
+    return this.listItems.update(oldValue => [...oldValue, { name: title }])
   }
 
 }

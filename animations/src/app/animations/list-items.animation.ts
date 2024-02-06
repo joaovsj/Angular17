@@ -13,8 +13,11 @@ export const maxMedia600 = trigger('list-items', [
         stagger('100ms', [ animate('.7s') ]) // segundo valor é referente ao tempo de cada animação
       ])
     ]),
-    transition('* => *', [
-      query(':leave', [
+
+
+    // Quando un item for retirado da lista(DECREMENT) INCREMENT = quando um item é adicionado
+    transition(':decrement', [
+      query('li:leave', [
 
 
         // EXCECUTA AS ANIMAÇÔES EM SEQUENCIA
@@ -29,8 +32,22 @@ export const maxMedia600 = trigger('list-items', [
         ])
 
 
+      ], { optional: true })
+    ]),
+
+
+     // Quando un item for retirado da lista(DECREMENT) INCREMENT = quando um item é adicionado
+     transition(':increment', [
+        query('li:enter', [
+            style({
+              backgroundColor: 'yellow',
+              transform: 'translateY(100px)',
+              opacity: 0.1
+            }),
+            // primeiro valor é referente ao tempo entre as animações(tempo que ele espera para realizar a proxima animação)
+            stagger('100ms', [ animate('.7s') ]) // segundo valor é referente ao tempo de cada animação
+          ])
       ])
-    ])
 ])
 
 
