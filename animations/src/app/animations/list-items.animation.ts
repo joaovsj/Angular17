@@ -1,7 +1,7 @@
 import { animate, query, sequence, stagger, style, transition, trigger } from "@angular/animations";
 
-export const listItemsAnimation = trigger('list-items', [
-    
+export const maxMedia600 = trigger('list-items', [
+
     transition(':enter', [
       query('li', [
         style({
@@ -25,22 +25,29 @@ export const listItemsAnimation = trigger('list-items', [
           animate('.2s', style({
             opacity: 0,
             transform: 'translateX(100px)'
-          })),
-          // animate('3s', style({
-          //   background: 'green'
-          // }))
+          })),  
         ])
 
-        // style({
-        //   opacity: 1
-        // }),
-        // style({
-        //   transform: 'translateX(-50px)'
-        // }),
-        // animate('.8s', style({ 
-        //   transform: 'translateX(10px)',
-        //   opacity: 0 
-        // }))
+
       ])
     ])
-  ])
+])
+
+
+// retorna sua animação de acordo com o tamanho da tela que voce especificar
+export const listItemsAnimation = () => {
+
+    // É MAIOR QUE 600 
+    if(isMatchMedia(600)){
+        return maxMedia600;
+    }
+
+    // SE FOR MENOR QUE 600
+    return;
+}
+
+// FUNÇÃO RESPONSÁVEL POR VERIFICA O TAMANHO DA TELA
+const isMatchMedia = (value: number) => {
+    return matchMedia(`(min-width: ${value}px)`).matches;
+}
+

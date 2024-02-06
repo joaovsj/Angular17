@@ -44,7 +44,7 @@ import { listItemsAnimation } from '../../animations/list-items.animation';
       // transition('* => move-left', animate('1s 2s ease')) // mostrar para exemplificar
     ]),
     
-    listItemsAnimation
+    listItemsAnimation()
     
     // trigger('list-items', [
     //   transition(':enter', [
